@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
         $res = $this->Usuario_model->login($email , $password);
 
         if(!$res){
-            
+            $this->session->set_flashdata("error", "usuario y/o contraseña incorrecto");
             redirect(base_url());
 
         }else{
