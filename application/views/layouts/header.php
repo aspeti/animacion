@@ -14,9 +14,20 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/dist/css/adminlte.min.css">
 
+    <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
+
+  <!-- Preloader 
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="<//?php echo base_url();?>/assets/dist/img/payaso1.png" alt="payasoX" height="60" width="60">
+  </div>
+  -->
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark">
