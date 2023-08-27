@@ -51,21 +51,33 @@
 <!-- Page specific script -->
 <script>
   $(function () {
-    $("#example1").DataTable({
+    $("#reporte").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
+    $('#lista').DataTable({
+      "paging": true, 
+      "lengthChange": false,  
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
       "responsive": true,
+
+      "language": {
+            "lengthMenu": "mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontró nada - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No existen registros",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "search": "Buscar",
+            "paginate" :{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        }
     });
   });
 </script>
-
 </body>
 </html>
