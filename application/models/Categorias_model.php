@@ -9,4 +9,8 @@ class Categorias_model extends CI_Model {
         $resultados = $this->db->get("categoria");
         return $resultados->result();          
     }
+
+    public function save ($data){
+        return $this->db->insert("categoria",$data);
+    }
 }

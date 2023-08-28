@@ -23,11 +23,15 @@
           <div class="col-12">
 
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">caracteristicas</h3>
+              <div class="card-header">                
+                <div class ="col-md-12" >
+                  <a href="<?php echo base_url();?>categorias/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
+                    <span class="fa fa-plus"></span>  Agregar
+                  </a>
+                </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">            
+              <div class="card-body">           
 
                 <table id="lista" class="table table-bordered table-striped">
                   <thead>                 
