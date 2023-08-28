@@ -52,7 +52,7 @@
                     <td>
                         <div class="btn-group">
                           <a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></a>
-                          <a class="btn btn-warning" href="#" class="btn bt-info"><span class="fa fa-pen"></span></a>
+                          <a class="btn btn-warning" href="<?php echo base_url();?>categorias/edit/<?php echo $categoria->id_categoria;?>" class="btn bt-info"><span class="fa fa-pen"></span></a>
                           <a class="btn btn-danger" href="#" class="btn bt-info"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>  

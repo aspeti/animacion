@@ -11,7 +11,7 @@ class Categorias extends CI_Controller {
 	public function index()
 	{
 		$listaCategorias = array(
-			'categorias'=> $this->Categorias_model->getCategorias(),
+			'categorias'=> $this->Categorias_model->getAllCategorias(),
 		);  
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
@@ -45,12 +45,45 @@ class Categorias extends CI_Controller {
 			redirect(base_url()."categorias/add");
 		}
 
-	//	echo $nombre." ".$descripcion; //to make test
-		
-	//	$this->load->view('layouts/header');
-	//	$this->load->view('layouts/aside');
-	//	$this->load->view('admin/categorias/add');
-	//	$this->load->view('layouts/footer');		
+	//	echo $nombre." ".$descripcion; //to make test	
 		
 	}    
+
+	public function edit($id){
+		
+		$nombre = $this->input->post("nombre");
+		$descripcion = $this->input->post("descripcion");
+
+		$data = array(
+
+			'categoria' => $this ->Categorias_model->getCategoriaById($id),
+		);
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('admin/categorias/edit', $data);
+		$this->load->view('layouts/footer');
+	}
+
+	public function update(){
+
+		$id = $this->input->post("idCategoria");
+		$nombre = $this->input->post("nombre");
+		$descripcion = $this->input->post("descripcion");
+
+		//echo $id." ".$nombre." ".$descripcion; //to make test	
+        
+		$data = array(
+			'nombre' => $nombre,
+			'descripcion' => $descripcion,
+		);
+
+		if($this->Categorias_model->update($id, $data)){
+			redirect(base_url()."categorias");
+		}else{
+			$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+			redirect(base_url()."categorias/edit/".$id);
+		}	
+	}
+
 }
