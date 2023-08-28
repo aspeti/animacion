@@ -51,9 +51,12 @@
                     <td><?php echo $categoria->descripcion;?></td>
                     <td>
                         <div class="btn-group">
-                          <a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></a>
-                          <a class="btn btn-warning" href="<?php echo base_url();?>categorias/edit/<?php echo $categoria->id_categoria;?>" class="btn bt-info"><span class="fa fa-pen"></span></a>
-                          <a class="btn btn-danger" href="#" class="btn bt-info"><i class="fa fa-trash"></i></a>
+                          <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $categoria->id_categoria;?>">
+                            <span class="fa fa-search"></span>
+                          </button>
+                          <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
+                          <a class="btn btn-warning" href="<?php echo base_url();?>categorias/edit/<?php echo $categoria->id_categoria;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
+                          <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>categorias/delete/<?php echo $categoria->id_categoria;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>  
                   </tr>  
@@ -82,3 +85,27 @@
     </section>
     <!-- /.content -->
   </div>
+
+  <!-- /.modal -->
+  <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Info</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <!--button type="button" class="btn btn-primary">Save changes</!button*-->
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->

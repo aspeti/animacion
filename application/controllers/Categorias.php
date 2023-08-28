@@ -86,4 +86,19 @@ class Categorias extends CI_Controller {
 		}	
 	}
 
+	public function view($id){
+		$data = array(
+			'categoria' => $this ->Categorias_model->getCategoriaById($id),
+		);
+		$this->load->view("admin/categorias/view",$data);
+	}
+
+	public function delete($id){
+		$data = array(
+			'estado' => "0",
+		);
+		$this->Categorias_model->update($id, $data); //actualizamos el registro
+		echo "categorias"; //return url to redirect
+	}
+
 }

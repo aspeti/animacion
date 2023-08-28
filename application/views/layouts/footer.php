@@ -51,6 +51,45 @@
 <!-- Page specific script -->
 <script>
   $(function () {
+
+    var base_url = "<?php echo base_url();?>";
+
+    $(".btn-remove").on("click", function(e){
+      e.preventDefault();
+     // alert("eliminando.."); //to test
+      var ruta = $(this).attr("href");
+      //alert(ruta) ; // to test ruta
+      $.ajax({
+        url: ruta,
+        type:"POST",   //usamos el metodo post
+        success:function(resp){   //si el valor es true lanzamos la alerta
+         // alert(resp);
+         // $("#modal-default .modal-body").html(resp);
+           window.location.href = base_url + resp;
+           //alert(base_url + resp);
+        }
+      });
+    
+    });
+
+ 
+
+    $(".btn-view").on("click", function(){ //obtiene el valor btn-view
+      var id = $(this).val();  //almacenamos el valor en en id     
+      $.ajax({
+        url:base_url + "categorias/view/"+id,  //nos dirigimos al controlado enviando el id
+        type:"POST",   //usamos el metodo post
+        success:function(resp){   //si el valor es true lanzamos la alerta
+          //alert(resp);
+          $("#modal-default .modal-body").html(resp);
+        }
+      });
+    });
+
+    
+
+
+
     $("#reporte").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
