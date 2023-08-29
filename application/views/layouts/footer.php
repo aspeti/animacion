@@ -48,6 +48,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url();?>assets/dist/js/pages/dashboard2.js"></script>
 
+<!-- Select2 -->
+<script src="<?php echo base_url();?>assets/plugins/select2/js/select2.full.min.js"></script>
+
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -75,15 +78,17 @@
  
 
     $(".btn-view").on("click", function(){ //obtiene el valor btn-view
-      var id = $(this).val();  //almacenamos el valor en en id     
+      var viewUrl = $(this).val();  //almacenamos el valor en en id     
+      //alert(viewUrl);
       $.ajax({
-        url:base_url + "categorias/view/"+id,  //nos dirigimos al controlado enviando el id
+        url:base_url + viewUrl,  //nos dirigimos al controlado enviando el id  
         type:"POST",   //usamos el metodo post
         success:function(resp){   //si el valor es true lanzamos la alerta
           //alert(resp);
           $("#modal-default .modal-body").html(resp);
         }
       });
+    
     });
 
     

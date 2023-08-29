@@ -15,4 +15,31 @@ class Usuario_model extends CI_Model {
             return false;
         }      
     }
+
+    public function getAllUsuarios()
+    {        
+        $this->db->where("estado","1");
+        $resultados = $this->db->get("usuario");
+        return $resultados->result();          
+    }
+
+    public function save ($data){
+        return $this->db->insert("usuario",$data);
+    }
+
+    public function getUsuarioById($id)
+    {        
+        $this->db->where("id_usuario", $id);
+        $this->db->where("estado","1");
+        $resultado = $this->db->get("usuario");
+        return $resultado->row();          
+    }
+    
+    public function update($id, $data)
+    {        
+        $this->db->where("id_usuario", $id);     
+        return $this->db->update("usuario", $data); 
+    }
+
+    
 }

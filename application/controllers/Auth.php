@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
     public function login(){
         $email = $this->input->post("email");
         $password = $this->input->post("password");
-        $res = $this->Usuario_model->login($email , $password);
+        $res = $this->Usuario_model->login($email , MD5($password));
 
         if(!$res){
             $this->session->set_flashdata("error", "usuario y/o contraseña incorrecto");
@@ -31,6 +31,7 @@ class Auth extends CI_Controller {
 
             $data = array(
                 'id_usuario'=> $res->id_usuario,
+                'nombre' => $res->nombre.' '.$res->apellido,                
                 'email'=> $res->email,
                 'rol'=>$res->id_rol,
                 'login'=>TRUE 

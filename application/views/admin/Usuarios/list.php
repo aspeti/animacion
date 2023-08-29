@@ -25,7 +25,7 @@
             <div class="card">
               <div class="card-header">                
                 <div class ="col-md-12" >
-                  <a href="<?php echo base_url();?>categorias/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
+                  <a href="<?php echo base_url();?>usuarios/add" type="button" class="btn btn-block btn-primary"> <!-- quietar el btn-block---->
                     <span class="fa fa-plus"></span>  Agregar
                   </a>
                 </div>
@@ -38,25 +38,32 @@
                   <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
+                    <th>Apellido</th>
+                    <th>CI</th>
+                    <th>email</th>
+                    <th>Celular</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php if(!empty($categorias)):?>
-                      <?php foreach($categorias as $categoria):?>
+                  <?php if(!empty($usuarios)):?>
+                      <?php foreach($usuarios as $usuario):?>
                   <tr>
-                    <td><?php echo $categoria->id_categoria;?></td>
-                    <td><?php echo $categoria->nombre;?></td>
-                    <td><?php echo $categoria->descripcion;?></td>
+                    <td><?php echo $usuario->id_usuario;?></td>
+                    <td><?php echo $usuario->nombre;?></td>
+                    <td><?php echo $usuario->apellido;?></td>
+                    <td><?php echo $usuario->ci;?></td>
+                    <td><?php echo $usuario->email;?></td>
+                    <td><?php echo $usuario->celular;?></td>
+                    
                     <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='categorias/view/'.$categoria->id_categoria;?>">
+                        <div class="btn-group">                          
+                          <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='usuarios/view/'.$usuario->id_usuario;?>">
                             <span class="fa fa-search"></span>
                           </button>
                           <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
-                          <a class="btn btn-warning" href="<?php echo base_url();?>categorias/edit/<?php echo $categoria->id_categoria;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
-                          <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>categorias/delete/<?php echo $categoria->id_categoria;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-warning" href="<?php echo base_url();?>usuarios/edit/<?php echo $usuario->id_usuario;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
+                          <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>usuarios/delete/<?php echo $usuario->id_usuario;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>  
                   </tr>  
@@ -67,7 +74,10 @@
                   <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Descripcion</th>
+                    <th>Apellido</th>
+                    <th>CI</th>
+                    <th>email</th>
+                    <th>Celular</th>
                     <th>Acciones</th>
                   </tr>
 
