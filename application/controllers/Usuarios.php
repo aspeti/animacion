@@ -36,9 +36,10 @@ class Usuarios extends CI_Controller {
 		$direccion = $this->input->post("direccion");
 		$celular = $this->input->post("celular");
 		$email = $this->input->post("email");
+		$password = $this->input->post("password");
 		$id_rol = $this->input->post("rol");
 
-		//	echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol);
+			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
 		$newUser = array(
 			'nombre' => $nombre,
@@ -47,6 +48,7 @@ class Usuarios extends CI_Controller {
 			'direccion'=> $direccion,
 			'celular'=> $celular,
 			'email' => $email,
+			'password' => md5($password),
 			'id_rol' => $id_rol,
 			'estado' => "1",
 			'fecha_creacion' => date('Y-m-d H:i:s'),

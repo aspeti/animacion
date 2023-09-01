@@ -65,10 +65,14 @@
                   <div class="form-group">
                     <label for="direccion">Celular</label>
                     <input type="text" class="form-control" placeholder="Celular" name="celular">
-                  </div> 
+                  </div>                   
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" placeholder="Email" name="email">
+                  </div> 
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Constraseña" name="password">
                   </div> 
 
                   <div class="form-group">
