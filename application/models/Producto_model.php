@@ -4,9 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Producto_model extends CI_Model {
 
     public function getAllproductos()
-    {        
-        $this->db->where("eliminado","0");
-        $resultados = $this->db->get("producto");
+    {   
+        $this->db->select("p.*, c.nombre as categoria");
+        $this->db->from("producto p");
+        $this->db->join("categoria c", "p.id_producto = c.id_categoria");    
+        $this->db->where("p.eliminado","0");
+        $resultados = $this->db->get();
         return $resultados->result();          
     }
 

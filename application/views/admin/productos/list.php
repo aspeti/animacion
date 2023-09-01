@@ -41,6 +41,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
@@ -53,6 +54,7 @@
                     <td><?php echo $producto->nombre;?></td>
                     <td><?php echo $producto->descripcion;?></td>
                     <td><?php echo $producto->precio;?></td>
+                    <td><?php echo $producto->categoria;?></td>
                     <td>
                         <div class="btn-group">
                           <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
@@ -74,6 +76,7 @@
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th>Categoria</th>
                     <th>Acciones</th>
                   </tr>
 
