@@ -119,7 +119,7 @@ class Usuarios extends CI_Controller {
 
 	public function delete($id){
 		$data = array(
-			'eliminado' => "0",
+			'eliminado' => "1",
 		);
 		$this->Usuario_model->update($id, $data); //actualizamos el registro
 		echo "usuarios"; //return url to redirect

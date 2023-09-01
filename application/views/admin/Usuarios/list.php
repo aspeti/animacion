@@ -47,9 +47,10 @@
                   </thead>
                   <tbody>
                   <?php if(!empty($usuarios)):?>
+                      <?php $cont = 1;?>
                       <?php foreach($usuarios as $usuario):?>
                   <tr>
-                    <td><?php echo $usuario->id_usuario;?></td>
+                    <td><?php echo $cont;?></td>
                     <td><?php echo $usuario->nombre;?></td>
                     <td><?php echo $usuario->apellido;?></td>
                     <td><?php echo $usuario->ci;?></td>
@@ -67,6 +68,7 @@
                         </div>
                     </td>  
                   </tr>  
+                      <?php $cont++;?>
                   <?php endforeach;?>
                   <?php endif; ?>                                               
                   </tbody>                                 

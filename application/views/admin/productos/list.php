@@ -64,7 +64,7 @@
                         </div>
                     </td>  
                   </tr>  
-                  <?php $cont++;?>
+                        <?php $cont++;?>
                   <?php endforeach;?>
                   <?php endif; ?>                                               
                   </tbody>                                 
@@ -73,6 +73,7 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
+                    <th>Precio</th>
                     <th>Acciones</th>
                   </tr>
 

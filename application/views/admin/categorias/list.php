@@ -44,9 +44,10 @@
                   </thead>
                   <tbody>
                   <?php if(!empty($categorias)):?>
+                      <?php $cont = 1;?>
                       <?php foreach($categorias as $categoria):?>
                   <tr>
-                    <td><?php echo $categoria->id_categoria;?></td>
+                    <td><?php echo $cont;?></td>
                     <td><?php echo $categoria->nombre;?></td>
                     <td><?php echo $categoria->descripcion;?></td>
                     <td>
@@ -60,6 +61,7 @@
                         </div>
                     </td>  
                   </tr>  
+                       <?php $cont++;?>
                   <?php endforeach;?>
                   <?php endif; ?>                                               
                   </tbody>                                 
