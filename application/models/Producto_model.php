@@ -5,7 +5,7 @@ class Producto_model extends CI_Model {
 
     public function getAllproductos()
     {        
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultados = $this->db->get("producto");
         return $resultados->result();          
     }
@@ -17,7 +17,7 @@ class Producto_model extends CI_Model {
     public function getProductoById($id)
     {        
         $this->db->where("id_producto", $id);
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultado = $this->db->get("producto");
         return $resultado->row();          
     }

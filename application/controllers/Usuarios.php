@@ -50,7 +50,7 @@ class Usuarios extends CI_Controller {
 			'email' => $email,
 			'password' => md5($password),
 			'id_rol' => $id_rol,
-			'estado' => "1",
+			'eliminado' => "0",
 			'fecha_creacion' => date('Y-m-d H:i:s'),
 			'fecha_actualizacion' => date('Y-m-d H:i:s')
 		);
@@ -119,7 +119,7 @@ class Usuarios extends CI_Controller {
 
 	public function delete($id){
 		$data = array(
-			'estado' => "0",
+			'eliminado' => "0",
 		);
 		$this->Usuario_model->update($id, $data); //actualizamos el registro
 		echo "usuarios"; //return url to redirect

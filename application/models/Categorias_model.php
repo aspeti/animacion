@@ -5,7 +5,7 @@ class Categorias_model extends CI_Model {
 
     public function getAllCategorias()
     {        
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultados = $this->db->get("categoria");
         return $resultados->result();          
     }
@@ -17,7 +17,7 @@ class Categorias_model extends CI_Model {
     public function getCategoriaById($id)
     {        
         $this->db->where("id_categoria", $id);
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultado = $this->db->get("categoria");
         return $resultado->row();          
     }

@@ -18,7 +18,7 @@ class Usuario_model extends CI_Model {
 
     public function getAllUsuarios()
     {        
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultados = $this->db->get("usuario");
         return $resultados->result();          
     }
@@ -30,7 +30,7 @@ class Usuario_model extends CI_Model {
     public function getUsuarioById($id)
     {        
         $this->db->where("id_usuario", $id);
-        $this->db->where("estado","1");
+        $this->db->where("eliminado","0");
         $resultado = $this->db->get("usuario");
         return $resultado->row();          
     }

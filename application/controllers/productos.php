@@ -41,7 +41,7 @@ class Productos extends CI_Controller {
 			'nombre' => $nombre,
 			'descripcion'=> $descripcion,		
 			'precio'=> $precio,
-			'estado' => "1",
+			'eliminado' => "0",
             'id_categoria' => $id_categoria,
 			'fecha_creacion' => date('Y-m-d H:i:s'),
 			'fecha_actualizacion' => date('Y-m-d H:i:s')
@@ -105,7 +105,7 @@ class Productos extends CI_Controller {
 
 	public function delete($id){
 		$data = array(
-			'estado' => "0",
+			'eliminado' => "1",
 		);
 		$this->Producto_model->update($id, $data); //actualizamos el registro
 		echo "productos"; //return url to redirect

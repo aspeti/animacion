@@ -35,7 +35,7 @@ class Categorias extends CI_Controller {
 		$newCatergoria = array(
 			'nombre' => $nombre,
 			'descripcion'=> $descripcion,
-			'estado' =>"1"
+			'eliminado' =>"0"
 		);
 
 		if($this->Categorias_model->save($newCatergoria)){
@@ -95,7 +95,7 @@ class Categorias extends CI_Controller {
 
 	public function delete($id){
 		$data = array(
-			'estado' => "0",
+			'eliminado' => "1",
 		);
 		$this->Categorias_model->update($id, $data); //actualizamos el registro
 		echo "categorias"; //return url to redirect
