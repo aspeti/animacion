@@ -41,21 +41,29 @@ class Productos extends CI_Controller {
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
-		$newProducto = array(
-			'nombre' => $nombre,
-			'descripcion'=> $descripcion,		
-			'precio'=> $precio,
-			'eliminado' => "0",
-            'id_categoria' => $id_categoria,
-			'fecha_creacion' => date('Y-m-d H:i:s'),
-			'fecha_actualizacion' => date('Y-m-d H:i:s')
-		);
+		$this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[producto.nombre]");
+        
+		if($this->form_validation->run()){	
 
-		if($this->Producto_model->save($newProducto)){
-			redirect(base_url()."productos");
+				$newProducto = array(
+					'nombre' => $nombre,
+					'descripcion'=> $descripcion,		
+					'precio'=> $precio,
+					'eliminado' => "0",
+					'id_categoria' => $id_categoria,
+					'fecha_creacion' => date('Y-m-d H:i:s'),
+					'fecha_actualizacion' => date('Y-m-d H:i:s')
+				);
+
+				if($this->Producto_model->save($newProducto)){
+					redirect(base_url()."productos");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo guardar el registro");
+					redirect(base_url()."productos/add");
+				}
+
 		}else{
-			$this->session->set_flashdata("Error","No se pudo guardar el registro");
-			redirect(base_url()."productos/add");
+			$this->add();
 		}
 
 		//	echo $nombre." ".$descripcion; //to make test	
@@ -85,21 +93,29 @@ class Productos extends CI_Controller {
         $id_categoria = $this->input->post("idCategoria");
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
-        
-		$data = array(
-			'nombre' => $nombre,
-			'descripcion' => $descripcion,
-            'precio' => $precio,
-			'id_categoria' => $id_categoria,
-            'fecha_actualizacion' => date('Y-m-d H:i:s')			
-		);
 
-		if($this->Producto_model->update($id, $data)){
-			redirect(base_url()."productos");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[producto.nombre]");
+        
+		if($this->form_validation->run()){
+
+				$data = array(
+					'nombre' => $nombre,
+					'descripcion' => $descripcion,
+					'precio' => $precio,
+					'id_categoria' => $id_categoria,
+					'fecha_actualizacion' => date('Y-m-d H:i:s')			
+				);
+
+				if($this->Producto_model->update($id, $data)){
+					redirect(base_url()."productos");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+					redirect(base_url()."productos/edit/".$id);
+				}	
+
 		}else{
-			$this->session->set_flashdata("Error","No se pudo actualizar el registro");
-			redirect(base_url()."productos/edit/".$id);
-		}	
+			$this->add();
+		}
 	}
 
 	public function view($id){		
