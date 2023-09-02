@@ -52,7 +52,7 @@
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':'';?>" placeholder="nombre" id="nombre" name="nombre"
-                      value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $producto->nombre; ?>">
+                       value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $producto->nombre; ?>">
                     <?php echo form_error("nombre","<span class='help-block'>","</span>")?>   
                   </div>
                   <div class="form-group">
@@ -61,7 +61,9 @@
                   </div>                 
                   <div class="form-group">
                     <label for="precio">Precio</label>
-                    <input type="text" class="form-control" placeholder="precio" name="precio" value="<?php echo $producto->precio; ?>">
+                    <input type="text" class="form-control <?php echo !empty(form_error("precio")) ? 'is-invalid':'';?>" placeholder="precio" id="precio" name="precio" 
+                    value="<?php echo !empty(form_error("precio")) ? set_value("precio") : $producto->precio; ?>">
+                    <?php echo form_error("precio","<span class='help-block'>","</span>")?>
                   </div>
                   <div class="form-group">
                     <label for="idCategoria">Categoria</label>
