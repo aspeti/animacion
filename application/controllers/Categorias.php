@@ -60,10 +60,7 @@ class Categorias extends CI_Controller {
 		
 	}    
 
-	public function edit($id){
-		
-		$nombre = $this->input->post("nombre");
-		$descripcion = $this->input->post("descripcion");
+	public function edit($id){	
 
 		$data = array(
 
@@ -83,18 +80,34 @@ class Categorias extends CI_Controller {
 		$descripcion = $this->input->post("descripcion");
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
-        
-		$data = array(
-			'nombre' => $nombre,
-			'descripcion' => $descripcion,
-		);
+		$categoriaActual = $this->Categorias_model->getCategoriaById($id);
 
-		if($this->Categorias_model->update($id, $data)){
-			redirect(base_url()."categorias");
+		if($nombre == $categoriaActual->nombre){
+			$unique = '';
+		}
+		else{
+			$unique = '|is_unique[categoria.nombre]';
+		}
+
+		$this->form_validation->set_rules("nombre", "Nombre", "required".$unique);
+
+		if($this->form_validation->run()){
+
+				$data = array(
+					'nombre' => $nombre,
+					'descripcion' => $descripcion,
+				);
+
+				if($this->Categorias_model->update($id, $data)){
+					redirect(base_url()."categorias");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+					redirect(base_url()."categorias/edit/".$id);
+				}	
 		}else{
-			$this->session->set_flashdata("Error","No se pudo actualizar el registro");
-			redirect(base_url()."categorias/edit/".$id);
-		}	
+			$this->edit($id);
+		}
+
 	}
 
 	public function view($id){
