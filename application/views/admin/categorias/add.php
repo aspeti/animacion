@@ -46,9 +46,10 @@
               <!-- form start -->
               <form action="<?php echo base_url();?>categorias/insert" method="POST">
                 <div class="card-body">
-                  <div class="form-group">
+                  <div class="form-group ">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" placeholder="nombre" name="nombre">
+                    <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>" placeholder="nombre" id="nombre" name="nombre" value = "<?php echo set_value("nombre");?>">
+                    <?php echo form_error("nombre","<span class='help-block'>","</span>")?>
                   </div>
                   <div class="form-group">
                     <label for="descripcion">Descripcion</label>

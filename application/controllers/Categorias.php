@@ -32,18 +32,29 @@ class Categorias extends CI_Controller {
 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");
 
-		$newCatergoria = array(
-			'nombre' => $nombre,
-			'descripcion'=> $descripcion,
-			'eliminado' =>"0"
-		);
+		// campo a validar, alias del campo, regla de validacion is unique( tabla,. nombre campo)	
+		$this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[categoria.nombre]");
 
-		if($this->Categorias_model->save($newCatergoria)){
-			redirect(base_url()."categorias");
+		if($this->form_validation->run()){
+
+			$newCatergoria = array(
+				'nombre' => $nombre,
+				'descripcion'=> $descripcion,
+				'eliminado' =>"0"
+			);
+	
+			if($this->Categorias_model->save($newCatergoria)){
+				redirect(base_url()."categorias");
+			}else{
+				$this->session->set_flashdata("Error","No se pudo guardar el registro");
+				redirect(base_url()."categorias/add");
+			}
+
 		}else{
-			$this->session->set_flashdata("Error","No se pudo guardar el registro");
-			redirect(base_url()."categorias/add");
+			$this->add();
 		}
+
+		
 
 	//	echo $nombre." ".$descripcion; //to make test	
 		

@@ -58,7 +58,7 @@
     var base_url = "<?php echo base_url();?>";
 
     $(".btn-remove").on("click", function(e){
-      e.preventDefault();
+      e.preventDefault(); //cancela la accion del href
      // alert("eliminando.."); //to test
       var ruta = $(this).attr("href");
       //alert(ruta) ; // to test ruta
