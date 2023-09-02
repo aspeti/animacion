@@ -7,7 +7,7 @@ class Producto_model extends CI_Model {
     {   
         $this->db->select("p.*, c.nombre as categoria");
         $this->db->from("producto p");
-        $this->db->join("categoria c", "p.id_producto = c.id_categoria");    
+        $this->db->join("categoria c", "p.id_categoria = c.id_categoria");    
         $this->db->where("p.eliminado","0");
         $resultados = $this->db->get();
         return $resultados->result();          

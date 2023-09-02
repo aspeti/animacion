@@ -27,7 +27,7 @@ class Categorias extends CI_Controller {
 		$this->load->view('layouts/footer');				
 	}  
 
-	public function store()
+	public function insert()
 	{
 		$nombre = $this->input->post("nombre");
 		$descripcion = $this->input->post("descripcion");

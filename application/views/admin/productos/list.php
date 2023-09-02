@@ -49,23 +49,23 @@
                   <?php if(!empty($productos)):?>
                         <?php $cont = 1;?>
                       <?php foreach($productos as $producto):?>
-                  <tr>
-                    <td><?php echo $cont;?></td>
-                    <td><?php echo $producto->nombre;?></td>
-                    <td><?php echo $producto->descripcion;?></td>
-                    <td><?php echo $producto->precio;?></td>
-                    <td><?php echo $producto->categoria;?></td>
-                    <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
-                            <span class="fa fa-search"></span>
-                          </button>
-                          <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
-                          <a class="btn btn-warning" href="<?php echo base_url();?>productos/edit/<?php echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
-                          <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>productos/delete/<?php echo $producto->id_producto;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
-                        </div>
-                    </td>  
-                  </tr>  
+                                <tr>
+                                  <td><?php echo $cont;?></td>
+                                  <td><?php echo $producto->nombre;?></td>
+                                  <td><?php echo $producto->descripcion;?></td>
+                                  <td><?php echo $producto->precio;?></td>
+                                  <td><?php echo $producto->categoria;?></td>
+                                  <td>
+                                      <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="<?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
+                                          <span class="fa fa-search"></span>
+                                        </button>
+                                        <!--a class="btn btn-primary" href="#" class="btn bt-info"><span class="fa fa-eye"></span></!a-->
+                                        <a class="btn btn-warning" href="<?php echo base_url();?>productos/edit/<?php echo $producto->id_producto;?>" class="btn btn-info"><span class="fa fa-pen"></span></a>
+                                        <a class="btn btn-danger btn-remove" href="<?php echo base_url();?>productos/delete/<?php echo $producto->id_producto;?>" class="btn btn-info"><i class="fa fa-trash"></i></a>
+                                      </div>
+                                  </td>  
+                                </tr>  
                         <?php $cont++;?>
                   <?php endforeach;?>
                   <?php endif; ?>                                               

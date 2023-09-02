@@ -57,11 +57,18 @@
                   <div class="form-group">
                     <label for="precio">Precio</label>
                     <input type="text" class="form-control" placeholder="Precio" name="precio">
-                  </div>       
+                  </div>  
                   <div class="form-group">
                     <label for="idCategoria">Categoria</label>
-                    <input type="text" class="form-control" placeholder="categoria" name="idCategoria">
-                  </div>              
+                    <select type="text" class="form-control" placeholder="categoria" name="idCategoria">
+                      <?php foreach($categorias as $categoria):?>
+                        <option value="<?php echo $categoria->id_categoria?>">
+                            <?php echo $categoria->nombre;?>
+                      </option>
+
+                      <?php endforeach?>
+                    </select>  
+                  </div>            
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

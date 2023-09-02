@@ -6,6 +6,7 @@ class Productos extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('Producto_model');
+		$this->load->model('Categorias_model');
     }
 
 	public function index()
@@ -22,9 +23,12 @@ class Productos extends CI_Controller {
 
 	public function add()
 	{		
+		$data = array (
+			"categorias" => $this->Categorias_model->getAllCategorias(),
+		);
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('admin/productos/add');
+		$this->load->view('admin/productos/add', $data);
 		$this->load->view('layouts/footer');				
 	}  
 
@@ -63,6 +67,7 @@ class Productos extends CI_Controller {
 		$data = array(
 
 			'producto' => $this ->Producto_model->getProductoById($id),
+			"categorias" => $this->Categorias_model->getAllCategorias()
 		);
 
 		$this->load->view('layouts/header');
@@ -77,7 +82,7 @@ class Productos extends CI_Controller {
         $nombre = $this->input->post("nombre");
         $descripcion = $this->input->post("descripcion");
         $precio = $this->input->post("precio");
-       // $id_categoria = $this->input->post("idCategoria");
+        $id_categoria = $this->input->post("idCategoria");
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
         
@@ -85,6 +90,7 @@ class Productos extends CI_Controller {
 			'nombre' => $nombre,
 			'descripcion' => $descripcion,
             'precio' => $precio,
+			'id_categoria' => $id_categoria,
             'fecha_actualizacion' => date('Y-m-d H:i:s')			
 		);
 

@@ -44,7 +44,7 @@
          
 
               <!-- form start -->
-              <form action="<?php echo base_url();?>categorias/store" method="POST">
+              <form action="<?php echo base_url();?>categorias/insert" method="POST">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nombre">Nombre</label>

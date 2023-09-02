@@ -60,7 +60,19 @@
                   <div class="form-group">
                     <label for="precio">Precio</label>
                     <input type="text" class="form-control" placeholder="precio" name="precio" value="<?php echo $producto->precio; ?>">
-                  </div>         
+                  </div>
+                  <div class="form-group">
+                    <label for="idCategoria">Categoria</label>
+                    <select type="text" class="form-control" placeholder="categoria" name="idCategoria">                      
+                      <?php foreach($categorias as $categoria):?>
+                        <?php if($categoria->id_categoria == $producto->id_categoria):?>
+                                <option value="<?php echo $categoria->id_categoria?>" selected> <?php echo $categoria->nombre;?></option>
+                        <?php else:?>
+                          <option value="<?php echo $categoria->id_categoria?>"> <?php echo $categoria->nombre;?></option>
+                          <?php endif;?>
+                      <?php endforeach?>
+                    </select>  
+                  </div>            
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
