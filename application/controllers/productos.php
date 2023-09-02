@@ -94,7 +94,16 @@ class Productos extends CI_Controller {
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
 
-		$this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[producto.nombre]");
+		$productoActual = $this->Producto_model->getProductoById($id);
+
+		if($nombre == $productoActual->nombre){
+			$unique = '';
+		}
+		else{
+			$unique = '|is_unique[producto.nombre]';
+		}
+
+		$this->form_validation->set_rules("nombre", "Nombre", "required".$unique);
         
 		if($this->form_validation->run()){
 
@@ -114,7 +123,7 @@ class Productos extends CI_Controller {
 				}	
 
 		}else{
-			$this->add();
+			$this->edit($id);
 		}
 	}
 
