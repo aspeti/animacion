@@ -40,26 +40,36 @@ class Usuarios extends CI_Controller {
 		$id_rol = $this->input->post("rol");
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
+		$this->form_validation->set_rules("nombre", "Nombre", "required");
+		$this->form_validation->set_rules("celular", "Celular", "required");
+		$this->form_validation->set_rules("direccion", "Direccion", "required");
+		$this->form_validation->set_rules("email", "Email", "required|is_unique[usuario.email]");
+		$this->form_validation->set_rules("password", "Password", "required");
+		
+		if($this->form_validation->run()){
 
-		$newUser = array(
-			'nombre' => $nombre,
-			'apellido'=> $apellido,
-			'ci'=> $ci,
-			'direccion'=> $direccion,
-			'celular'=> $celular,
-			'email' => $email,
-			'password' => md5($password),
-			'id_rol' => $id_rol,
-			'eliminado' => "0",
-			'fecha_creacion' => date('Y-m-d H:i:s'),
-			'fecha_actualizacion' => date('Y-m-d H:i:s')
-		);
+				$newUser = array(
+					'nombre' => $nombre,
+					'apellido'=> $apellido,
+					'ci'=> $ci,
+					'direccion'=> $direccion,
+					'celular'=> $celular,
+					'email' => $email,
+					'password' => md5($password),
+					'id_rol' => $id_rol,
+					'eliminado' => "0",
+					'fecha_creacion' => date('Y-m-d H:i:s'),
+					'fecha_actualizacion' => date('Y-m-d H:i:s')
+				);
 
-		if($this->Usuario_model->save($newUser)){
-			redirect(base_url()."usuarios");
+				if($this->Usuario_model->save($newUser)){
+					redirect(base_url()."usuarios");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo guardar el registro");
+					redirect(base_url()."usuarios/add");
+				}
 		}else{
-			$this->session->set_flashdata("Error","No se pudo guardar el registro");
-			redirect(base_url()."usuarios/add");
+			$this->add();
 		}
 
 		//	echo $nombre." ".$descripcion; //to make test	
@@ -88,26 +98,32 @@ class Usuarios extends CI_Controller {
 		$direccion = $this->input->post("direccion");
 		$celular = $this->input->post("celular");
 		$email = $this->input->post("email");
-		$rol = $this->input->post("rol");
+		$rol = $this->input->post("rol");		
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
-        
-		$data = array(
-			'nombre' => $nombre,
-			'apellido' => $apellido,
-			'ci' => $ci,
-			'direccion' => $direccion,
-			'celular' => $celular,
-			'email' => $email,
-			'id_rol' => $rol
-		);
 
-		if($this->Usuario_model->update($id, $data)){
-			redirect(base_url()."usuarios");
-		}else{
-			$this->session->set_flashdata("Error","No se pudo actualizar el registro");
-			redirect(base_url()."usuarios/edit/".$id);
-		}	
+		
+		
+		
+
+				$data = array(
+					'nombre' => $nombre,
+					'apellido' => $apellido,
+					'ci' => $ci,
+					'direccion' => $direccion,
+					'celular' => $celular,
+					'email' => $email,
+					'fecha_actualizacion' => date('Y-m-d H:i:s'),
+					'id_rol' => $rol
+				);
+
+				if($this->Usuario_model->update($id, $data)){
+					redirect(base_url()."usuarios");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+					redirect(base_url()."usuarios/edit/".$id);
+				}	
+	
 	}
 
 	public function view($id){		

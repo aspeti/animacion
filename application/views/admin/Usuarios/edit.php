@@ -71,7 +71,7 @@
                   </div>     
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="CI" name="email" value="<?php echo $usuario->email; ?>">
+                    <input type="email" class="form-control" placeholder="CI" name="email" value="<?php echo $usuario->email; ?>">
                   </div>       
                 
                   
