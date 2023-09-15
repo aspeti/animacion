@@ -40,11 +40,12 @@ class Usuarios extends CI_Controller {
 		$id_rol = $this->input->post("rol");
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
-		$this->form_validation->set_rules("nombre", "Nombre", "required");
-		$this->form_validation->set_rules("celular", "Celular", "required");
-		$this->form_validation->set_rules("direccion", "Direccion", "required");
-		$this->form_validation->set_rules("email", "Email", "required|is_unique[usuario.email]");
-		$this->form_validation->set_rules("password", "Password", "required");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("apellido", "Apellido", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("celular", "Celular", "trim|numeric|required|min_length[8]|max_length[8]");
+		$this->form_validation->set_rules("direccion", "Direccion", "required|min_length[3]|max_length[30]");
+		$this->form_validation->set_rules("email", "Email", "required|valid_email|is_unique[usuario.email]");
+		$this->form_validation->set_rules("password", "Password", 'required|min_length[5]|max_length[20]');
 		
 		if($this->form_validation->run()){
 
@@ -112,10 +113,11 @@ class Usuarios extends CI_Controller {
 		}
 		
 		
-		$this->form_validation->set_rules("nombre", "Nombre", "required");
-		$this->form_validation->set_rules("celular", "Celular", "required");
-		$this->form_validation->set_rules("direccion", "Direccion", "required");
-		$this->form_validation->set_rules("email", "Email", "required".$unique);
+		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("apellido", "Apellido", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("celular", "Celular", "trim|numeric|required|min_length[8]|max_length[8]");
+		$this->form_validation->set_rules("direccion", "Direccion", "required|min_length[3]|max_length[30]");
+		$this->form_validation->set_rules("email", "Email", "required|valid_email|min_length[5]|max_length[20]".$unique);
 		//$this->form_validation->set_rules("password", "Password", "required");
 		
 

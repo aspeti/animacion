@@ -57,7 +57,9 @@
                   </div>
                   <div class="form-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" placeholder="Apellido" name="apellido" value="<?php echo $usuario->apellido; ?>">
+                    <input type="text" class="form-control <?php echo !empty(form_error("apellido")) ? 'is-invalid':'';?>"
+                           placeholder="Apellido" name="apellido" id="apellido" value="<?php echo !empty(form_error("apellido")) ? set_value("apellido") : $usuario->apellido; ?>">
+                           <?php echo form_error("nombre","<span class='help-block'>","</span>")?>  
                   </div>       
                   <div class="form-group">
                     <label for="ci">CI</label>
@@ -77,9 +79,9 @@
                   </div>     
                   <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" class="form-control <?php echo !empty(form_error("email")) ? 'is-invalid':'';?>" 
-                    placeholder="Email" name="email" id="email" value="<?php echo !empty(form_error("email")) ? set_value("email") : $usuario->email; ?>">
-                    <?php echo form_error("email","<span class='help-block'>","</span>")?>  
+                    <input type="text" class="form-control <?php echo !empty(form_error("email")) ? 'is-invalid':'';?>" 
+                            placeholder="Correo electronico" name="email" id="email" value="<?php echo !empty(form_error("email")) ? set_value("email") : $usuario->email; ?>">
+                            <?php echo form_error("email","<span class='help-block'>","</span>")?>  
                   </div>       
                 
                   

@@ -48,12 +48,15 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nombre">Nombre *</label>
-                    <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>" placeholder="nombre" name="nombre" id="nombre" value = "<?php echo set_value("nombre");?>">
-                    <?php echo form_error("nombre","<span class='help-block'>","</span>")?>
+                    <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>" 
+                            placeholder="nombre" name="nombre" id="nombre" value = "<?php echo set_value("nombre");?>">
+                            <?php echo form_error("nombre","<span class='help-block'>","</span>")?>
                   </div>
                   <div class="form-group">
                     <label for="apellido">apellido</label>
-                    <input type="text" class="form-control" placeholder="Apellido" name="apellido">
+                    <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':' ';?>"
+                           placeholder="Apellido" name="apellido" id="apellido" value = "<?php echo set_value("apellido");?>">
+                           <?php echo form_error("apellido","<span class='help-block'>","</span>")?>
                   </div>    
                   <div class="form-group">
                     <label for="ci">CI</label>
@@ -61,23 +64,27 @@
                   </div> 
                   <div class="form-group">
                     <label for="direccion">Direccion *</label>
-                    <input type="text" class="form-control <?php echo !empty(form_error("direccion")) ? 'is-invalid':' ';?>" placeholder="Direccion" name="direccion" id="direccion" value = "<?php echo set_value("direccion");?>">
-                    <?php echo form_error("direccion","<span class='help-block'>","</span>")?>
+                    <input type="text" class="form-control <?php echo !empty(form_error("direccion")) ? 'is-invalid':' ';?>" 
+                            placeholder="Direccion" name="direccion" id="direccion" value = "<?php echo set_value("direccion");?>">
+                            <?php echo form_error("direccion","<span class='help-block'>","</span>")?>
                   </div>       
                   <div class="form-group">
                     <label for="direccion">Celular *</label>
-                    <input type="text" class="form-control <?php echo !empty(form_error("celular")) ? 'is-invalid':' ';?>" placeholder="Celular" name="celular" id="celular" value = "<?php echo set_value("celular");?>">
-                    <?php echo form_error("celular","<span class='help-block'>","</span>")?>
+                    <input type="text" class="form-control <?php echo !empty(form_error("celular")) ? 'is-invalid':' ';?>" 
+                          placeholder="Celular" name="celular" id="celular" value = "<?php echo set_value("celular");?>">
+                          <?php echo form_error("celular","<span class='help-block'>","</span>")?>
                   </div>                   
                   <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" class="form-control <?php echo !empty(form_error("email")) ? 'is-invalid':' ';?>" placeholder="Email" name="email" id="email" value = "<?php echo set_value("email");?>">
-                    <?php echo form_error("email","<span class='help-block'>","</span>")?>
+                    <input type="text" class="form-control <?php echo !empty(form_error("email")) ? 'is-invalid':' ';?>"
+                        placeholder="Correo electronico" name="email" id="email" value = "<?php echo set_value("email");?>">
+                        <?php echo form_error("email","<span class='help-block'>","</span>")?>
                   </div> 
                   <div class="form-group">
                     <label for="password">Password *</label>
-                    <input type="password" class="form-control <?php echo !empty(form_error("password")) ? 'is-invalid':' ';?>" placeholder="Constraseña" name="password" id="password" value = "<?php echo set_value("password");?>">
-                    <?php echo form_error("password","<span class='help-block'>","</span>")?>
+                    <input type="password" class="form-control <?php echo !empty(form_error("password")) ? 'is-invalid':' ';?>" 
+                        placeholder="Constraseña" name="password" id="password" value = "<?php echo set_value("password");?>">
+                        <?php echo form_error("password","<span class='help-block'>","</span>")?>
                   </div> 
 
                   <div class="form-group">
