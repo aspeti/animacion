@@ -50,7 +50,7 @@
                     <input type="hidden" name="idCategoria" value="<?php echo $categoria->id_categoria; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre *</label>
                     <input type="text" class="form-control  <?php echo !empty(form_error("nombre")) ? 'is-invalid':'';?>" placeholder="nombre" id="nombre" name="nombre" 
                           value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $categoria->nombre; ?>">
                     <?php echo form_error("nombre","<span class='help-block'>","</span>")?>                 

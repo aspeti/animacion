@@ -50,7 +50,7 @@
                     <input type="hidden" name="idProducto" value="<?php echo $producto->id_producto; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre *</label>
                     <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':'';?>" placeholder="nombre" id="nombre" name="nombre"
                        value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $producto->nombre; ?>">
                     <?php echo form_error("nombre","<span class='help-block'>","</span>")?>   
@@ -60,7 +60,7 @@
                     <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" value="<?php echo $producto->descripcion; ?>">
                   </div>                 
                   <div class="form-group">
-                    <label for="precio">Precio</label>
+                    <label for="precio">Precio *</label>
                     <input type="text" class="form-control <?php echo !empty(form_error("precio")) ? 'is-invalid':'';?>" placeholder="precio" id="precio" name="precio" 
                     value="<?php echo !empty(form_error("precio")) ? set_value("precio") : $producto->precio; ?>">
                     <?php echo form_error("precio","<span class='help-block'>","</span>")?>
