@@ -50,8 +50,10 @@
                     <input type="hidden" name="idusuario" value="<?php echo $usuario->id_usuario; ?>">
                   </div>
                   <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" placeholder="nombre" name="nombre" value="<?php echo $usuario->nombre; ?>">
+                    <label for="nombre">Nombre *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("nombre")) ? 'is-invalid':'';?>"
+                           placeholder="nombre" name="nombre" id="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $usuario->nombre; ?>">
+                           <?php echo form_error("nombre","<span class='help-block'>","</span>")?>  
                   </div>
                   <div class="form-group">
                     <label for="apellido">Apellido</label>
@@ -62,16 +64,22 @@
                     <input type="text" class="form-control" placeholder="CI" name="ci" value="<?php echo $usuario->ci; ?>">
                   </div> 
                   <div class="form-group">
-                    <label for="celular">Celular</label>
-                    <input type="text" class="form-control" placeholder="Celular" name="celular" value="<?php echo $usuario->celular; ?>">
+                    <label for="celular">Celular *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("celular")) ? 'is-invalid':'';?>" 
+                            placeholder="Celular" name="celular" id="celular" value="<?php echo !empty(form_error("celular")) ? set_value("celular") : $usuario->celular; ?>">
+                            <?php echo form_error("celular","<span class='help-block'>","</span>")?>  
                   </div>
                   <div class="form-group">
-                    <label for="direccion">Direccion</label>
-                    <input type="text" class="form-control" placeholder="Direccion" name="direccion" value="<?php echo $usuario->direccion; ?>">
+                    <label for="direccion">Direccion *</label>
+                    <input type="text" class="form-control <?php echo !empty(form_error("direccion")) ? 'is-invalid':'';?>" 
+                            placeholder="Direccion" name="direccion" id="direccion" value="<?php echo !empty(form_error("direccion")) ? set_value("direccion") : $usuario->direccion; ?>">
+                            <?php echo form_error("direccion","<span class='help-block'>","</span>")?>  
                   </div>     
                   <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" placeholder="CI" name="email" value="<?php echo $usuario->email; ?>">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control <?php echo !empty(form_error("email")) ? 'is-invalid':'';?>" 
+                    placeholder="Email" name="email" id="email" value="<?php echo !empty(form_error("email")) ? set_value("email") : $usuario->email; ?>">
+                    <?php echo form_error("email","<span class='help-block'>","</span>")?>  
                   </div>       
                 
                   

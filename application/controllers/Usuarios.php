@@ -102,9 +102,24 @@ class Usuarios extends CI_Controller {
 
 		//echo $id." ".$nombre." ".$descripcion; //to make test	
 
+		$user = $this ->Usuario_model->getUsuarioById($id);
+
+		if($email == $user->email){
+			$unique = '';
+		}
+		else{
+			$unique = '|is_unique[usuario.email]';
+		}
 		
 		
+		$this->form_validation->set_rules("nombre", "Nombre", "required");
+		$this->form_validation->set_rules("celular", "Celular", "required");
+		$this->form_validation->set_rules("direccion", "Direccion", "required");
+		$this->form_validation->set_rules("email", "Email", "required".$unique);
+		//$this->form_validation->set_rules("password", "Password", "required");
 		
+
+		if($this->form_validation->run()){
 
 				$data = array(
 					'nombre' => $nombre,
@@ -123,7 +138,9 @@ class Usuarios extends CI_Controller {
 					$this->session->set_flashdata("Error","No se pudo actualizar el registro");
 					redirect(base_url()."usuarios/edit/".$id);
 				}	
-	
+		}else{
+			$this->edit($id);
+		}		
 	}
 
 	public function view($id){		
