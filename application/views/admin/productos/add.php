@@ -9,7 +9,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Producto</li>
+              <li class="breadcrumb-item active">Servicios</li>
               <li class="breadcrumb-item active">Agregar</li>
             </ol>
           </div>
@@ -29,7 +29,7 @@
                 
               <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Producto</h3>
+                <h3 class="card-title">Servicios</h3>
               </div>              
               <!-- /.card-header -->
 

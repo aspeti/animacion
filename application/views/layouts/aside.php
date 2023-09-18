@@ -68,7 +68,7 @@
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>productos" class="nav-link">
                           <i class="fas fa-store nav-icon"></i>
-                          <p>Paquetes</p>
+                          <p>Servicios</p>
                         </a>
                       </li>   
                     </ul>
