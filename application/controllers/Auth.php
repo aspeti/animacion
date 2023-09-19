@@ -43,8 +43,56 @@ class Auth extends CI_Controller {
         }
     }
 
+    public function registro()
+	{				
+		$this->load->view('admin/registro');					
+	}  
+
     public function logout(){
         $this->session->sess_destroy();
         redirect(base_url());
     }
+
+    public function registroUsuario()
+	{
+		$nombre = $this->input->post("nombre");
+		$celular = $this->input->post("celular");	
+		$email = $this->input->post("email");
+		$password = $this->input->post("password");
+		//$passconf = $this->input->post("passconf");		
+
+			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
+		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]");
+		$this->form_validation->set_rules("celular", "Celular", "trim|numeric|required|min_length[8]|max_length[8]");
+		$this->form_validation->set_rules("email", "Email", "required|valid_email|is_unique[usuario.email]");
+		$this->form_validation->set_rules("password", "Password", 'required|min_length[5]|max_length[20]');
+		$this->form_validation->set_rules('passconf', 'Confirmacion de password', 'trim|required|min_length[5]|max_length[20]|matches[password]');
+		
+		if($this->form_validation->run()){
+
+				$newUser = array(
+					'nombre' => $nombre,				
+					'celular'=> $celular,
+					'email' => $email,
+					'password' => md5($password),
+					'id_rol' => "2",
+					'eliminado' => "0",
+					'fecha_creacion' => date('Y-m-d H:i:s'),
+					'fecha_actualizacion' => date('Y-m-d H:i:s')
+				);
+
+				if($this->Usuario_model->save($newUser)){
+					redirect(base_url()."Auth/login");
+				}else{
+					$this->session->set_flashdata("Error","No se pudo guardar el registro");
+					redirect(base_url()."admin/registro"); 
+				}
+		}else{
+			$this->registro();
+		}
+
+		//	echo $nombre." ".$descripcion; //to make test	
+		
+	}
+
 }

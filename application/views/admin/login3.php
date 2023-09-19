@@ -36,7 +36,7 @@
        <form action="<?php echo base_url();?>Auth/login" method="post">
           <div class="row align-items-center">
                 <div class="header-text mb-4">
-                     <h2>Animacion y eventos</h2>
+                     <h2>Eventos y animaciones</h2>
                      <p>Estamos felices de que este de vuelta</p>
                 </div>
                 <?php if($this->session->flashdata("error")):?>
@@ -67,7 +67,7 @@
                     <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
                 </!--div-->
                 <div class="row">
-                    <small>No tienes cuenta? <a href="#">Registrate</a></small>
+                    <small>No tienes cuenta? <a href="<?php echo base_url();?>Auth/registro">Registrate</a></small>
                 </div>
           </div>
        </div> 
