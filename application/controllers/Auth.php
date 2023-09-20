@@ -82,7 +82,7 @@ class Auth extends CI_Controller {
 				);
 
 				if($this->Usuario_model->save($newUser)){
-					redirect(base_url()."Auth/login");
+					redirect(base_url()."Auth");
 				}else{
 					$this->session->set_flashdata("Error","No se pudo guardar el registro");
 					redirect(base_url()."admin/registro"); 
