@@ -51,12 +51,21 @@
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>     
         </a>
-        <div class="dropdown-menu dropdown-menu dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">
-          <a href="<?php echo base_url();?>/auth/logout">
-          <span class="dropdown-item dropdown-header">  Salir </span>            
-          </span>    
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">Mi Perfil</span>
+          <div class="dropdown-divider"></div>
+          <a href="<?php echo base_url()?>usuarios/viewprofile/<?php echo $this->session->userdata('id_usuario'); ?> " class="dropdown-item">
+            <i class="fa fa-gear mr-2"></i>Mis datos
+            <!--span class="float-right text-muted text-sm">3 mins</!span-->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="<?php echo base_url('usuarios/password/'.$this->session->userdata('id_usuario')); ?>" class="dropdown-item">
+            <i class="fa-solid fa-lock mr-2"></i> Actualizar Contaseña
+            <!--span-- class="float-right text-muted text-sm">12 hours</!--span-->
           </a>        
+          <div class="dropdown-divider"></div>
+          <a href="<?php echo base_url();?>/auth/logout" class="dropdown-item ">
+          <i class="fa-solid fa-right-from-bracket fa-lg mr-2"></i></ion-icon>Cerrar Session</a>
         </div>
       </li>
       <!--li class="nav-item">
