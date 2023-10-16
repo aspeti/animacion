@@ -41,7 +41,7 @@ class Productos extends CI_Controller {
 
 			//echo ($nombre.'-'.$apellido.'-'.$ci.'-'.$direccion.'-'.$celular.'-'.$email.'-'.$id_rol.'*'.md5($password));
 
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]|is_unique[producto.nombre]");
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]|is_unique[producto.nombre]");
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
         
 		if($this->form_validation->run()){	
@@ -104,7 +104,7 @@ class Productos extends CI_Controller {
 			$unique = '|is_unique[producto.nombre]';
 		}
 
-		$this->form_validation->set_rules("nombre", "Nombre", "required|alpha|min_length[3]|max_length[20]".$unique);
+		$this->form_validation->set_rules("nombre", "Nombre", "required|regex_match[/^[a-zA-Z ]+$/]|min_length[3]|max_length[20]".$unique);
 		$this->form_validation->set_rules("precio", "Precio", "required|numeric");
         
 		if($this->form_validation->run()){

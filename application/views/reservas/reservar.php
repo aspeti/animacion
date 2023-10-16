@@ -117,34 +117,40 @@
               </div>
 
               <div class="mt-4">
-                                                    <label for="">Producto Adicional:</label>
-                                                    <select name="" id="" class="form-control" required>
-                                                            <option value="1">Pintado de Caritas</option>
-                                                            <option value="2">karaoque</option>
-                                                            <option value="3">Cotillon para 10 personas</option> 
-                                                    </select>  
+                <label for="">Producto Adicional:</label>
+                <select name="" id="" class="form-control" required>
+                    <?php foreach($productos as $producto):?>
+                      <?php if($producto->categoria == "Adicional"):?>
+                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                      <?php endif;?>
+                    <?php endforeach;?>
+                </select>  
               
-                                                    <label for="">Selecccion de Chistes:</label>
-                                                    <select name="" id="" class="form-control" required>
-                                                            <option value="1">Humor Familiar</option>
-                                                            <option value="1">Humor solo niños</option>
-                                                            <option value="1">Humor Cristiano</option>
-                                                    </select>     
+                <label for="">Selecccion de Chistes:</label>
+                <select name="" id="" class="form-control" required>
+                    <?php foreach($productos as $producto):?>
+                      <?php if($producto->categoria == "Humor"):?>
+                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                      <?php endif;?>
+                    <?php endforeach;?>
+                </select>     
                                                     
-                                                    <label for="">Tematica de la presentacion:</label>
-                                                    <select name="" id="" class="form-control" required>
-                                                            <option value="1">Princesas</option>
-                                                            <option value="1">Vaqueros</option>
-                                                            <option value="1">Sin preferencias</option>
-                                                    </select>   
+                <label for="">Tematica de la presentacion:</label>
+                <select name="" id="" class="form-control" required>
+                    <?php foreach($productos as $producto):?>
+                      <?php if($producto->categoria == "Tematica"):?>
+                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                      <?php endif;?>
+                    <?php endforeach;?>
+                </select>   
                                                 
-                                                    </div>
+              </div>
               <div class="form-group row mt-4">                                                   
-                                                <div class="col-md-3">
-                                                    <label for="">Fecha del Evento:</label>
-                                                    <input type="date" class="form-control" name="fecha" required>
-                                                </div>
-                                            </div>
+                <div class="col-md-3">
+                  <label for="">Fecha del Evento:</label>
+                  <input type="date" class="form-control" name="fecha"required>
+                </div>
+              </div>
 
               <div class="mt-4">
                 <div class="btn btn-primary btn-lg btn-flat">

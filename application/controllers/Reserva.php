@@ -5,7 +5,7 @@ class Reserva extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-		
+		$this->load->model('Producto_model');
     }
 
 	public function index()
@@ -18,9 +18,13 @@ class Reserva extends CI_Controller {
 
 	public function reservar()
 	{
+		$lista = array(
+			'productos'=> $this->Producto_model->getAllproductos(),
+		); 
+
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('reservas/reservar');
+		$this->load->view('reservas/reservar', $lista);
 		$this->load->view('layouts/footer');
 	}   
 	 
