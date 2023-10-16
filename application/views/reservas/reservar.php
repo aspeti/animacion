@@ -30,9 +30,9 @@
               <img src="<?php echo base_url();?>assets/img/prod1.jpg" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
-                <div class="product-image-thumb active"><img src="<?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="<?php echo base_url();?>assets/img/prod2.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="<?php echo base_url();?>assets/img/prod3.jpg" alt="Product Image"></div>
+                <!--div class="product-image-thumb active"><img src="<?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></!div>
+                <div class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod2.jpg" alt="Product Image"></div>
+                <div-- class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod3.jpg" alt="Product Image"></div-->
            
               </div>
             </div>
@@ -45,7 +45,7 @@
               <p>1 Payasito</p>
 
               <hr>
-              <h4>Colores de la Animacion Diponibles</h4>
+              <h4>Colores de Vestuario</h4>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-default text-center active">
                   <input type="radio" name="color_option" id="color_option_a1" autocomplete="off" checked>
@@ -117,14 +117,43 @@
               </div>
 
               <div class="mt-4">
+                                                    <label for="">Producto Adicional:</label>
+                                                    <select name="" id="" class="form-control" required>
+                                                            <option value="1">Pintado de Caritas</option>
+                                                            <option value="2">karaoque</option>
+                                                            <option value="3">Cotillon para 10 personas</option> 
+                                                    </select>  
+              
+                                                    <label for="">Selecccion de Chistes:</label>
+                                                    <select name="" id="" class="form-control" required>
+                                                            <option value="1">Humor Familiar</option>
+                                                            <option value="1">Humor solo niños</option>
+                                                            <option value="1">Humor Cristiano</option>
+                                                    </select>     
+                                                    
+                                                    <label for="">Tematica de la presentacion:</label>
+                                                    <select name="" id="" class="form-control" required>
+                                                            <option value="1">Princesas</option>
+                                                            <option value="1">Vaqueros</option>
+                                                            <option value="1">Sin preferencias</option>
+                                                    </select>   
+                                                
+                                                    </div>
+              <div class="form-group row mt-4">                                                   
+                                                <div class="col-md-3">
+                                                    <label for="">Fecha del Evento:</label>
+                                                    <input type="date" class="form-control" name="fecha" required>
+                                                </div>
+                                            </div>
+
+              <div class="mt-4">
                 <div class="btn btn-primary btn-lg btn-flat">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i>
                   Reservar
                 </div>
 
-                <div class="btn btn-default btn-lg btn-flat">
-                  <i class="fas fa-heart fa-lg mr-2"></i>
-                  Lista de Deseos
+                <div class="btn btn-success btn-lg btn-flat">                
+                  Realizar Deposito
                 </div>
               </div>
               <!--

@@ -5,7 +5,7 @@ insert into rol (nombre, descripcion, eliminado)values
 
 select * from usuario;
 insert into usuario(fecha_creacion,eliminado,email,password,nombre,apellido,id_rol)values
-(CURDATE(),0,"admin@mail.com",MD5("admin"),'admin','apellidos',1);
+(CURDATE(),0,"admin@gmail.com",MD5("admin"),'admin','apellidos',1);
 
 insert into rol (nombre, descripcion, eliminado)values
 ("admin","administrador",0),

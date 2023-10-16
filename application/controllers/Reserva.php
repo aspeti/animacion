@@ -12,8 +12,16 @@ class Reserva extends CI_Controller {
 	{
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('store');
-		$this->load->view('layouts/footer');		
-		
+		$this->load->view('reservas/card');
+		$this->load->view('layouts/footer');
 	}   
+
+	public function reservar()
+	{
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('reservas/reservar');
+		$this->load->view('layouts/footer');
+	}   
+	 
 }

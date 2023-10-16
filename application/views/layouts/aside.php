@@ -90,14 +90,8 @@
                       <p>Paquetes</p>
                       </a>
                   </li>   
-          <?php if($this->session->userdata('rol') == 2) { ?>           
-                  <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
-                      <i class="far fa-calendar-alt nav-icon"></i>
-                      <p>Reservar</p>
-                      </a>
-                  </li>   
-
+          <?php if($this->session->userdata('rol') == 2) { ?>       
+              
                 
                   <li class="nav-item">
                       <a href="<?php echo base_url();?>#" class="nav-link">
