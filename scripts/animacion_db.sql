@@ -61,8 +61,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 12
 DEFAULT CHARACTER SET = utf8;
 
--- CREATE INDEX `fk_Producto_categoria1` ON `animacion_db`.`producto` (`id_categoria` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `animacion_db`.`rol`
@@ -108,9 +106,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
--- CREATE INDEX `fk_Usuario_rol1` ON `animacion_db`.`usuario` (`id_rol` ASC) VISIBLE;
-
-
 -- -----------------------------------------------------
 -- Table `animacion_db`.`paquete`
 -- -----------------------------------------------------
@@ -139,6 +134,7 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`detalle_paquete` (
   `id_producto` INT(11) NOT NULL,
   `id_paquete` INT NOT NULL,
   `cantidad` VARCHAR(45) NULL,
+  `importe` VARCHAR(45) NULL,
   `precio` VARCHAR(45) NULL,
   PRIMARY KEY (`id_producto`, `id_paquete`),
   CONSTRAINT `fk_producto_has_paquete_producto1`
@@ -153,10 +149,6 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`detalle_paquete` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
--- CREATE INDEX `fk_producto_has_paquete_paquete1_idx` ON `animacion_db`.`detalle_paquete` (`id_paquete` ASC) VISIBLE;
-
--- CREATE INDEX `fk_producto_has_paquete_producto1_idx` ON `animacion_db`.`detalle_paquete` (`id_producto` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -213,11 +205,6 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`reserva` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- CREATE INDEX `fk_reserva_comprobante1_idx` ON `animacion_db`.`reserva` (`id_comprobante` ASC) VISIBLE;
-
--- CREATE INDEX `fk_reserva_usuario1_idx` ON `animacion_db`.`reserva` (`id_usuario` ASC) VISIBLE;
-
--- CREATE INDEX `fk_reserva_paquete1_idx` ON `animacion_db`.`reserva` (`id_paquete` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
@@ -241,9 +228,3 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`personalizado` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
--- CREATE INDEX `fk_producto_has_reserva_reserva1_idx` ON `animacion_db`.`personalizado` (`reserva_id_reserva` ASC) VISIBLE;
-
--- CREATE INDEX `fk_producto_has_reserva_producto1_idx` ON `animacion_db`.`personalizado` (`producto_id_producto` ASC) VISIBLE;
-
-
