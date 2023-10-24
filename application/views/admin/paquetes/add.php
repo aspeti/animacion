@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         
-                                        <form action="<?php echo base_url();?>paquetes/agregar" method="POST" class="form-horizontal" onsubmit=" return validarForm();" enctype="multipart/form-data">
+                                        <form action="<?php echo base_url();?>paquetes/agregar" method="POST" class="form-horizontal" onsubmit="return validarForm();" enctype="multipart/form-data">
                                             <div class="form-group row">                                                  
                                                 <div class="col-md-3">
                                                     <label for="nombre">Nombre</label>
@@ -93,7 +93,7 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="">&nbsp;</label>
-                                                        <button id="btn-agregar" type="button" class="btn btn-success btn-flat btn-block"><span class="fa fa-plus"></span> Agregar</button>
+                                                        <button id="btn-agregar" type="button" class="btn btn-success btn-block"><span class="fa fa-plus"></span> Agregar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,24 +115,6 @@
                                             </table>
 
                                             <div class="form-group row">
-                                                <!--div class="col-md-3">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">Subtotal:</span>
-                                                        <input type="text" class="form-control" placeholder="0.00" name="subtotal" id="subtotal" readonly="readonly">
-                                                    </div>
-                                                </!--div>
-                                                <div class="col-md-3">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">IGV:</span>
-                                                        <input type="text" class="form-control" placeholder="Username" name="igv" readonly="readonly">
-                                                    </div>
-                                                </div>
-                                                <div-- class="col-md-3">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">Descuento:</span>
-                                                        <input type="text" class="form-control" placeholder="Username" name="descuento" value="0.00" readonly="readonly">
-                                                    </div>
-                                                </div-->
                                                 <div class="col-md-3">
                                                     <div class="input-group">
                                                         <span class="input-group-addon">Total Bs:</span>
@@ -140,11 +122,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="row">
                                             <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-success ">Guardar</button>
                                                 </div>                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">                                                    
+                                                    <a type="button" class="btn btn-danger" href="<?php echo base_url();?>paquetes/">Cancelar</a>
+                                                </div>                                                
+                                            </div>
                                             </div>
                                         </form>
                                     </div>
