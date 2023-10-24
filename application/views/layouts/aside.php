@@ -39,7 +39,7 @@
               </li>
             </ul>
           </li-->
-          <?php if($this->session->userdata('rol') == 1) { ?>
+          <!--<?php if($this->session->userdata('rol') == 1) { ?>
                   <li class="nav-item">
                     <a href="#" class="nav-link">                           
                       <i class="nav-icon fas fa-cog"></i>           
@@ -47,47 +47,47 @@
                         Administracion
                         <i class="fas fa-angle-left right"></i>
                       </p>
-                    </a>
-                    <ul class="nav nav-treeview">
+                    </a>-->
+                    <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>usuarios" class="nav-link">
                           <i class="fas fa-users nav-icon"></i>
                           <p>Usuarios</p>
                         </a>
                       </li>   
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    <!--</ul>-->
+                    <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>categorias" class="nav-link">
                           <i class="fas fa-bars nav-icon"></i>
                           <p>Categoria</p>
                         </a>
                       </li>   
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    <!--</ul>-->
+                    <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>productos" class="nav-link">
                           <i class="fas fa-store nav-icon"></i>
                           <p>Servicios</p>
                         </a>
                       </li>   
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    <!--</ul>-->
+                    <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>paquetes" class="nav-link">
-                          <i class="fas fa-store nav-icon"></i>
+                          <i class="fas fa-gift nav-icon"></i>
                           <p>Paquetes</p>
                         </a>
                       </li>   
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    <!--</ul>-->
+                    <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>#" class="nav-link">
-                          <i class="fas fa-receipt nav-icon"></i>
+                          <i class="fas fa-file-text nav-icon"></i>
                           <p>Reportes</p>
                         </a>
                       </li>   
-                    </ul>
+                    <!--</ul>-->
                   </li>
 
           <?php }?>
