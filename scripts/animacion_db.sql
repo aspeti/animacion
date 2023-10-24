@@ -134,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`detalle_paquete` (
   `id_producto` INT(11) NOT NULL,
   `id_paquete` INT NOT NULL,
   `cantidad` VARCHAR(45) NULL,
-  `importe` VARCHAR(45) NULL,
   `precio` VARCHAR(45) NULL,
+  `importe` VARCHAR(45) NULL,
   PRIMARY KEY (`id_producto`, `id_paquete`),
   CONSTRAINT `fk_producto_has_paquete_producto1`
     FOREIGN KEY (`id_producto`)
