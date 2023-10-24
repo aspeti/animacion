@@ -27,25 +27,24 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
-              <img src="<?php echo base_url();?>assets/img/prod1.jpg" class="product-image" alt="Product Image">
+              <img src="<?php echo base_url().$paquete->img;?>" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
-                <!--div class="product-image-thumb active"><img src="<?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></!div>
+                <!--div class="product-image-thumb active"><img src="</?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></!div>
                 <div class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod2.jpg" alt="Product Image"></div>
                 <div-- class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod3.jpg" alt="Product Image"></div-->
            
               </div>
             </div>
             <div class="col-12 col-sm-6">
-              <h3 class="my-3">Paquete infantil</h3>
-              <p>Dos animadores</p>
-              <p>Una bailarina</p>
-              <p>Maquillaje niños</p>
-              <p>2 Bocinas</p>
-              <p>1 Payasito</p>
-
+              <h3 class="my-3"><?php echo $paquete->nombre;?></h3>              
+              <?php if(!empty($detalles)):?>                       
+                <?php foreach($detalles as $detalle):?>
+                  <p><?php echo $detalle->cantidad.' '.$detalle->nombre.' '.$detalle->descripcion?></p>
+                  <?php endforeach;?>
+              <?php endif; ?> 
               <hr>
-              <h4>Colores de Vestuario</h4>
+              <h4>Colores de Vestuario <small>Selecciona una</small></h4>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-default text-center active">
                   <input type="radio" name="color_option" id="color_option_a1" autocomplete="off" checked>
@@ -77,42 +76,14 @@
                   <br>
                   <i class="fas fa-circle fa-2x text-orange"></i>
                 </label>
-              </div>
-    <!--
-              <h4 class="mt-3">Categoria <small>Selecciona una</small></h4>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b1" autocomplete="off">
-                  <span class="text-xl">S</span>
-                  <br>
-                  Small
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b2" autocomplete="off">
-                  <span class="text-xl">M</span>
-                  <br>
-                  Medium
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b3" autocomplete="off">
-                  <span class="text-xl">L</span>
-                  <br>
-                  Large
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_b4" autocomplete="off">
-                  <span class="text-xl">XL</span>
-                  <br>
-                  Xtra-Large
-                </label>
-              </div>  -->
+              </div> 
 
               <div class="bg-gray py-2 px-3 mt-4">
                 <h2 class="mb-0">
-                  Bs 1200
+                <?php echo $paquete->precio;?>
                 </h2>
                 <h4 class="mt-0">
-                  <small>Sin Factura: Bs 990.00 </small>
+                  <small>Precio en Bs</small>
                 </h4>
               </div>
 
