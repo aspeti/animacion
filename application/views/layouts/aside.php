@@ -60,7 +60,7 @@
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>categorias" class="nav-link">
                           <i class="fas fa-bars nav-icon"></i>
-                          <p>Catergoria</p>
+                          <p>Categoria</p>
                         </a>
                       </li>   
                     </ul>
@@ -69,6 +69,14 @@
                         <a href="<?php echo base_url();?>productos" class="nav-link">
                           <i class="fas fa-store nav-icon"></i>
                           <p>Servicios</p>
+                        </a>
+                      </li>   
+                    </ul>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="<?php echo base_url();?>paquetes" class="nav-link">
+                          <i class="fas fa-store nav-icon"></i>
+                          <p>Paquetes</p>
                         </a>
                       </li>   
                     </ul>
@@ -87,7 +95,7 @@
                   <li class="nav-item">
                       <a href="<?php echo base_url();?>reserva" class="nav-link">
                       <i class="fas fa-gifts nav-icon"></i>
-                      <p>Paquetes</p>
+                      <p>Reservas</p>
                       </a>
                   </li>   
           <?php if($this->session->userdata('rol') == 2) { ?>       
