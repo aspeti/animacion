@@ -39,7 +39,7 @@
               </li>
             </ul>
           </li-->
-          <?php if($this->session->userdata('rol') == 1) { ?>
+          <!--<?php if($this->session->userdata('rol') == 1) { ?>
                   <li class="nav-item">
                     <!--<a href="#" class="nav-link">                           
                       <i class="nav-icon fas fa-cog"></i>           
@@ -73,6 +73,7 @@
                       </li>   
                     <!--</ul>-->
                     <!--<ul class="nav nav-treeview">-->
+
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>paquetes" class="nav-link">
                           <i class="fas fa-gift nav-icon"></i>
