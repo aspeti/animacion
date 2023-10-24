@@ -79,11 +79,12 @@
                   </tbody>                                 
                  
                   <tr>
-                    <th>#</th>
+                  <th>#</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Categoria</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                   </tr>
 
