@@ -20,6 +20,9 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>assets/dist/js/adminlte.js"></script>
 
+<!-- bs-custom-file-input -->
+<script src="<?php echo base_url();?>assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 <!-- DataTables  & Plugins -->
 <script  src="<?php echo base_url();?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script  src="<?php echo base_url();?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -91,9 +94,6 @@
     
     });
 
-    
-
-
 
     $("#reporte").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -121,7 +121,17 @@
             }
         }
     });
+
   });
+
+    ///--------carga el nombre del archivo en el textbox -->
+
+  $(function () {
+      bsCustomFileInput.init();
+  });
+
+  
+  
 
   //-- -------------------------- profile---------------------------------------------------->
 
