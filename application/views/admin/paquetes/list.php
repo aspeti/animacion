@@ -42,6 +42,7 @@
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Categoria</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
@@ -58,9 +59,9 @@
                                     <?php }else if($paquete->categoria == 2){ echo "VIP";?>
                                       <?php }else if($paquete->categoria == 3){ echo "NORMAL";?>
                                         <?php }else{ echo "ECONOMICO";?>
-                                          <?php };?>
-                                  
+                                          <?php };?>                                  
                                   </td>
+                                  <td><img src="<?php echo base_url().$paquete->img ;?>" class="product-image-thumb" alt="Product Image"></td>
                                   <td>
                                       <div class="btn-group">
                                         <!--button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="</?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
