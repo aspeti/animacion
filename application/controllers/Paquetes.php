@@ -33,6 +33,19 @@ class Paquetes extends CI_Controller {
 		$this->load->view('layouts/footer');			
 	}
 
+	public function edit($id){	
+
+		$data = array(
+
+			'paquete' => $this ->Paquete_model->getPaqueteById($id),
+		);
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('admin/paquetes/edit', $data);
+		$this->load->view('layouts/footer');
+	}
+
 
     public function agregar()
 	{
@@ -68,6 +81,30 @@ class Paquetes extends CI_Controller {
 			redirect(base_url()."ventas/add");		}		
 	}
 
+	public function update()
+	{
+		$id = $this->input->post("idPaquete");
+        $nombre = $this->input->post("nombre");
+		$descripcion = $this->input->post("descripcion");
+		$categoria = $this->input->post("categoria");       
+        $img = "customFile";		
+			
+		$data = array(
+			'fecha_actualizacion' => date('Y-m-d H:i:s'),			
+            'nombre'=> $nombre,	
+            'descripcion'=> $descripcion,	
+            'categoria'=> $categoria,
+		);
+
+		if($this->Paquete_model->update($id,$data)){		
+			$this->uploadFile($id,$img);			
+			redirect(base_url()."paquetes");
+
+		}else{
+			$this->session->set_flashdata("Error","No se pudo actualizar el registro");
+			redirect(base_url()."paquetes/edit/".$id);		}		
+	}
+
     protected function uploadFile($idPaquete, $img){
 
         $config['upload_path'] = './assets/img/paquetes/';
@@ -86,7 +123,7 @@ class Paquetes extends CI_Controller {
 			$file_type = $file_info['file_ext'];
 		}	
 
-        $imgPath = '/assets/img/paquetes/'.$idPaquete.$file_type;
+        $imgPath = 'assets/img/paquetes/'.$idPaquete.$file_type;
 
         $this->updateImgPath($idPaquete,$imgPath);       
 
