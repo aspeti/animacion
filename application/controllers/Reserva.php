@@ -34,6 +34,17 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/aside');
 		$this->load->view('reservas/reservar', $lista);
 		$this->load->view('layouts/footer');
+	}
+	public function viewReport()
+	{
+		$lista = array(
+			'paquetes'=> $this->Paquete_model->getAllPaquetes(),
+		); 
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('reservas/report');
+		$this->load->view('layouts/footer');
 	}   
 	 
 }
