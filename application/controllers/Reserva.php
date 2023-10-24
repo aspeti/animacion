@@ -7,6 +7,7 @@ class Reserva extends CI_Controller {
         parent::__construct();
 		$this->load->model('Paquete_model');
 		$this->load->model('Producto_model');
+		$this->load->model('Detalle_paquete_model');
     }
 
 	public function index()
@@ -21,9 +22,11 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/footer');
 	}   
 
-	public function reservar()
-	{
+	public function reservar($id)
+	{		
 		$lista = array(
+			'paquete'=> $this->Paquete_model->getPaqueteById($id),
+			'detalles'=> $this->Detalle_paquete_model->getAllDetallesById($id),
 			'productos'=> $this->Producto_model->getAllproductos(),
 		); 
 
