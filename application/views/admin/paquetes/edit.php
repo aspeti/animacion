@@ -81,7 +81,7 @@
                     <label for="customFile">Seleecione imagen</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="customFile">
+                            <input type="file" class="custom-file-input" id="customFile" name="customFile" required>
                             <label class="custom-file-label" for="customFile">Seleccionar Archivo</label>
                         </div>                     
                     </div>

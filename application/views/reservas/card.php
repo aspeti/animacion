@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Paquetes</h1>
+            <h1>Paquetes disponibles</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -24,111 +24,51 @@
       <div class="card card-solid">
         <div class="card-body pb-0">
           <div class="row">
+              <?php if(!empty($paquetes)):?>                       
+                <?php foreach($paquetes as $paquete):?>
 
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-              <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
-                  Paquete Familiar
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>La mesa redonda</b></h2>
-                      <p class="text-muted text-sm"><b>Descripcion: </b> Paquete para toda la familia </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"></span> Contiene: Juegoss, baile, musica</li>
-                        <li class="small"><span class="fa-li"></span> Tipo: Personalizable</li>
-                      </ul>
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                      <div class="card bg-light d-flex flex-fill">
+                        <div class="card-header text-muted border-bottom-0">
+                          Paquete disponible
+                        </div>
+                        <div class="card-body pt-0">
+                          <div class="row">
+                            <div class="col-7">
+                              <h2 class="lead"><b><?php echo $paquete->nombre;?></b></h2>
+                              <p class="text-muted text-sm"><b>Descripcion: </b> <?php echo $paquete->descripcion;?> </p>
+                              <ul class="ml-4 mb-0 fa-ul text-muted">
+                                <li class="small"><span class="fa-li"></span> Contiene: Juegoss, baile, musica</li>
+                                <li class="small"><span class="fa-li">                                  
+                                        </span> <?php if($paquete->categoria == 1){ echo "Categoria: EXCLUSIVO";?>
+                                                  <?php }else if($paquete->categoria == 2){ echo "Categoria: VIP";?>
+                                                    <?php }else if($paquete->categoria == 3){ echo "Categoria: NORMAL";?>
+                                                      <?php }else{ echo "Categoria: ECONOMICO";?>
+                                                        <?php };?> 
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-5 text-center">
+                                  <!--img src="</?php echo base_url();?>assets/img/paquetes/almohada1.jpg" alt="user-avatar" class="img-circle img-fluid"-->
+                                  <div class="product-image-thumb" ><img src="<?php echo base_url().$paquete->img;?>" alt="Product Image"></div> 
+                                  
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="text-right">
+                            <a href="#" class="btn btn-sm bg-teal">
+                              <i class="fas fa-comments"></i>
+                            </a>
+                            <a href="<?php echo base_url();?>reserva/reservar" class="btn btn-sm btn-primary">
+                              <i class="fas fa-user"></i> Ver Detalles
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-5 text-center">
-                           <!--img src="</?php echo base_url();?>assets/img/paquetes/almohada1.jpg" alt="user-avatar" class="img-circle img-fluid"-->
-                           <div class="product-image-thumb" ><img src="<?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></div> 
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="<?php echo base_url();?>reserva/reservar" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> Ver Detalles
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-              <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
-                  Paquete Infantil
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Blanca Nieves</b></h2>
-                      <p class="text-muted text-sm"><b>Descripcion: </b> Paquete para Niños </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"></span> Contiene: maquillaje, baile, musica</li>
-                        <li class="small"><span class="fa-li"></span> Tipo: Personalizable</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                        <!--img src="</?php echo base_url();?>assets/img/paquetes/almohada1.jpg" alt="user-avatar" class="img-circle img-fluid"-->
-                        <div class="product-image-thumb" ><img src="<?php echo base_url();?>assets/img/prod2.jpg" alt="Product Image"></div> 
-                    </div>
-                        
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="<?php echo base_url();?>reserva/reservar" class="btn btn-sm btn-primary">                
-                      <i class="fas fa-user"></i> Ver Detalles
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-              <div class="card bg-light d-flex flex-fill">
-                <div class="card-header text-muted border-bottom-0">
-                  Paquete Juvenil
-                </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 class="lead"><b>Jupiter</b></h2>
-                      <p class="text-muted text-sm"><b>Descripcion: </b> Paquete para Adolescentes </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"></span> Contiene: Juegos, baile, musica</li>
-                        <li class="small"><span class="fa-li"></span> Tipo: Personalizable</li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                           <!--img src="</?php echo base_url();?>assets/img/paquetes/almohada1.jpg" alt="user-avatar" class="img-circle img-fluid"-->
-                           <div class="product-image-thumb" ><img src="<?php echo base_url();?>assets/img/prod3.jpg" alt="Product Image"></div> 
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="#" class="btn btn-sm bg-teal">
-                      <i class="fas fa-comments"></i>
-                    </a>
-                    <a href="<?php echo base_url();?>reserva/reservar" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> Ver Detalles
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+                <?php endforeach;?>
+              <?php endif; ?> 
           </div>
         </div>
         <!-- /.card-body 
