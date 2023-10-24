@@ -40,7 +40,7 @@ class Paquetes extends CI_Controller {
 		$descripcion = $this->input->post("descripcion");
 		$categoria = $this->input->post("categoria");
         $precio = $this->input->post("txttotal");
-        $img = $this->input->post("customFile");
+        $img = "customFile";
 
         $productos_id = $this->input->post("idcodigo");		
 		$precios =      $this->input->post("precios");

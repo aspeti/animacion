@@ -54,7 +54,13 @@
                                   <td><?php echo $paquete->nombre;?></td>
                                   <td><?php echo $paquete->descripcion;?></td>
                                   <td><?php echo $paquete->precio;?></td>
-                                  <td><?php echo $paquete->categoria;?></td>
+                                  <td><?php if($paquete->categoria == 1){ echo "EXCLUSIVO";?>
+                                    <?php }else if($paquete->categoria == 2){ echo "VIP";?>
+                                      <?php }else if($paquete->categoria == 3){ echo "NORMAL";?>
+                                        <?php }else{ echo "ECONOMICO";?>
+                                          <?php };?>
+                                  
+                                  </td>
                                   <td>
                                       <div class="btn-group">
                                         <!--button type="button" class="btn btn-info btn-view" data-toggle="modal" data-target="#modal-default" value="</?php echo $viewURL ='productos/view/'.$producto->id_producto;?>">
