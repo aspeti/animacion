@@ -106,16 +106,20 @@ class Paquetes extends CI_Controller {
                 'id_paquete' => $idPaquete,
                 'cantidad' => $cantidades[$i],
                 'precio' => $precios[$i],                
-                'importe' => $importes[$i]
-			//	'fecha_creacion' => date('Y-m-d H:i:s'),
-			//	'fecha_actualizacion' => date('Y-m-d H:i:s'),
-			//	'eliminado' => "0"
+                'importe' => $importes[$i]			
             );
-            $this->Paquete_model->save_detalle($data);
-		//	$this->updateProducto($productos[$i],$cantidades[$i]);
+            $this->Paquete_model->save_detalle($data);		
         }
 
     }
+
+	public function delete($id){
+		$data = array(
+			'eliminado' => "1",
+		);
+		$this->Paquete_model->update($id, $data); 
+		echo "paquetes"; 
+	}
 
 
 }
