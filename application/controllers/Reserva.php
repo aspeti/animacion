@@ -45,6 +45,13 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/aside');
 		$this->load->view('reservas/report');
 		$this->load->view('layouts/footer');
-	}   
+	}
+	public function viewPayment()
+	{
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('reservas/payment');
+		$this->load->view('layouts/footer');
+	}    
 	 
 }

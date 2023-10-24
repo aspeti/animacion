@@ -36,7 +36,10 @@
            
               </div>
             </div>
+            
             <div class="col-12 col-sm-6">
+            <form action="<?php echo base_url();?>Reserva/viewPayment" method="POST">
+            
               <h3 class="my-3"><?php echo $paquete->nombre;?></h3>              
               <?php if(!empty($detalles)):?>                       
                 <?php foreach($detalles as $detalle):?>
@@ -123,11 +126,11 @@
                 </div>
               </div>
 
-              <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
+              <div class="mt-4 form-group">
+     
+                <button type="submit" class="btn btn-primary btn-lg btn-flat" >
                   <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                  Reservar
-                </div>
+                      Reservar</button>
 
                 <div class="btn btn-success btn-lg btn-flat">                
                   Realizar Deposito
@@ -148,8 +151,9 @@
                   <i class="fas fa-rss-square fa-2x"></i>
                 </a>
               </div>   --->
-
+            </form>
             </div>
+            
           </div>
           <div class="row mt-4">
             <nav class="w-100">
