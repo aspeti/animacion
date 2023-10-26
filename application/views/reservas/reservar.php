@@ -31,7 +31,7 @@
               </div>              
             </div>            
             <div class="col-12 col-sm-6">
-            <form action="<?php echo base_url();?>Reserva/viewPayment" method="POST">
+            <form action="<?php echo base_url();?>Ressoloerva/viewPayment" method="POST">
             
               <h3 class="my-3"><?php echo $paquete->nombre;?></h3>              
               <?php if(!empty($detalles)):?>                       
@@ -85,8 +85,8 @@
               
               <div class="mt-4 row">
                         <div class="col-md-3">
-                            <label for="">Producto Adicional:</label>
-                            <select name="" id="" class="form-control" required>
+                            <label for="adicional">Producto Adicional:</label>
+                            <select name="adicional" id="adicional" class="form-control" required>
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Adicional"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
@@ -95,8 +95,8 @@
                             </select>  
                         </div>   
                         <div class="col-md-3">
-                            <label for="">Selecccion de Chistes:</label>
-                            <select name="" id="" class="form-control" required>
+                            <label for="humor">Selecccion de Chistes:</label>
+                            <select name="humor" id="humor" class="form-control" required>
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Humor"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
@@ -105,8 +105,8 @@
                             </select>     
                         </div>   
                         <div class="col-md-3">                                    
-                            <label for="">Tematica:</label>
-                            <select name="" id="" class="form-control" required>
+                            <label for="tematica">Tematica:</label>
+                            <select name="tematica" id="tematica" class="form-control" required>
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Tematica"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
@@ -117,30 +117,28 @@
               </div>
               <div class="form-group row mt-4">   
                 <div class="col-md-6">
-                  <label for="">Direccion del evento</label>
-                  <input type="text" class="form-control" name="fecha"required>
+                  <label for="direccion">Direccion del evento</label>
+                  <input type="text" class="form-control" name="direccion" id="direccion" required>
                 </div>
                 <div class="col-md-3">
-                  <label for="">Contacto</label>
-                  <input type="text" class="form-control" name="fecha"required>
+                  <label for="contacto">Contacto:</label>
+                  <input type="text" class="form-control" name="contacto" id="contacto" required>
                 </div>
               </div>
               <div class="form-group row mt-4">                                                   
                   <div class="col-md-3">
-                    <label for="">Fecha del Evento:</label>
-                    <input type="date" class="form-control" name="fecha"required>
+                    <label for="fecha">Fecha del Evento:</label>
+                    <input type="date" class="form-control" name="fecha" id="fecha" required>
                   </div> 
                   <div class="col-md-3">
                     <label for="comprobante">Comprobante:</label>                                                    
                     <select name="comprobante" id="comprobante" class="form-control" required>
-                        <option value="">Seleccione...</option> 
-                        <?php foreach($comprobantes as $comprobante): ?>
-                        <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->igv.'*'.$comprobante->serie;?>
+                        <option value="">Seleccione...</option>                      
+                        <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->serie;?>
                         <option value="<?php echo $dataComprobante;?>"><?php echo $comprobante->nombre ;?></option>  
-                        <?php endforeach;?>
+                      
                     </select>                                                  
-                    <input type="hidden" id="idcomprobante" name="idcomprobante">
-                    <input type="hidden" id="igv">
+                    <input type="hidden" id="idcomprobante" name="idcomprobante">                   
                   </div>                                                
                   <div class="col-md-3">
                     <label for="">Serie:</label>
@@ -170,3 +168,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+

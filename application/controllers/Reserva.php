@@ -9,6 +9,8 @@ class Reserva extends CI_Controller {
 		$this->load->model('Producto_model');
 		$this->load->model('Detalle_paquete_model');
 		$this->load->model('Reservar_model');
+		$this->load->model('Comprobante_model');
+
     }
 
 	public function index()
@@ -29,6 +31,7 @@ class Reserva extends CI_Controller {
 			'paquete'=> $this->Paquete_model->getPaqueteById($id),
 			'detalles'=> $this->Detalle_paquete_model->getAllDetallesById($id),
 			'productos'=> $this->Producto_model->getAllproductos(),
+			'comprobante'=> $this->Comprobante_model->getComprobante(),
 		); 
 
 		$this->load->view('layouts/header');
