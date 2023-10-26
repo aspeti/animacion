@@ -8,6 +8,7 @@ class Reserva extends CI_Controller {
 		$this->load->model('Paquete_model');
 		$this->load->model('Producto_model');
 		$this->load->model('Detalle_paquete_model');
+		$this->load->model('Reservar_model');
     }
 
 	public function index()
@@ -38,12 +39,12 @@ class Reserva extends CI_Controller {
 	public function viewReport()
 	{
 		$lista = array(
-			'paquetes'=> $this->Paquete_model->getAllPaquetes(),
+			'reservas'=> $this->Reservar_model->getAllreservas(),
 		); 
 
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-		$this->load->view('reservas/report');
+		$this->load->view('reservas/report', $lista);
 		$this->load->view('layouts/footer');
 	}
 	public function viewPayment()
@@ -52,6 +53,22 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/aside');
 		$this->load->view('reservas/payment');
 		$this->load->view('layouts/footer');
-	}    
+	}   
+	
+	public function reportefechas()
+	{		  
+		$FechaInicial = $this->input->post("fechaInicial");
+		$FechaFinal = $this->input->post("fechaFinal");
+
+		$data = array(
+			"ventas" => $this->Reservar_model->getAllreservasforFecha($FechaInicial, $FechaFinal),					
+		);
+
+		$this->load->view('fpdf\Pruebah.php', $data);	
+		
+		
+	}
+
+
 	 
 }
