@@ -28,15 +28,8 @@
               <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
               <img src="<?php echo base_url().$paquete->img;?>" class="product-image" alt="Product Image">
-              </div>
-              <div class="col-12 product-image-thumbs">
-                <!--div class="product-image-thumb active"><img src="</?php echo base_url();?>assets/img/prod1.jpg" alt="Product Image"></!div>
-                <div class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod2.jpg" alt="Product Image"></div>
-                <div-- class="product-image-thumb" ><img src="</?php echo base_url();?>assets/img/prod3.jpg" alt="Product Image"></div-->
-           
-              </div>
-            </div>
-            
+              </div>              
+            </div>            
             <div class="col-12 col-sm-6">
             <form action="<?php echo base_url();?>Reserva/viewPayment" method="POST">
             
@@ -89,85 +82,84 @@
                   <small>Precio en Bs</small>
                 </h4>
               </div>
-
-              <div class="mt-4">
-                <label for="">Producto Adicional:</label>
-                <select name="" id="" class="form-control" required>
-                    <?php foreach($productos as $producto):?>
-                      <?php if($producto->categoria == "Adicional"):?>
-                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
-                      <?php endif;?>
-                    <?php endforeach;?>
-                </select>  
               
-                <label for="">Selecccion de Chistes:</label>
-                <select name="" id="" class="form-control" required>
-                    <?php foreach($productos as $producto):?>
-                      <?php if($producto->categoria == "Humor"):?>
-                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
-                      <?php endif;?>
-                    <?php endforeach;?>
-                </select>     
-                                                    
-                <label for="">Tematica de la presentacion:</label>
-                <select name="" id="" class="form-control" required>
-                    <?php foreach($productos as $producto):?>
-                      <?php if($producto->categoria == "Tematica"):?>
-                        <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
-                      <?php endif;?>
-                    <?php endforeach;?>
-                </select>   
-                                                
+              <div class="mt-4 row">
+                        <div class="col-md-3">
+                            <label for="">Producto Adicional:</label>
+                            <select name="" id="" class="form-control" required>
+                                <?php foreach($productos as $producto):?>
+                                  <?php if($producto->categoria == "Adicional"):?>
+                                    <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                                  <?php endif;?>
+                                <?php endforeach;?>
+                            </select>  
+                        </div>   
+                        <div class="col-md-3">
+                            <label for="">Selecccion de Chistes:</label>
+                            <select name="" id="" class="form-control" required>
+                                <?php foreach($productos as $producto):?>
+                                  <?php if($producto->categoria == "Humor"):?>
+                                    <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                                  <?php endif;?>
+                                <?php endforeach;?>
+                            </select>     
+                        </div>   
+                        <div class="col-md-3">                                    
+                            <label for="">Tematica:</label>
+                            <select name="" id="" class="form-control" required>
+                                <?php foreach($productos as $producto):?>
+                                  <?php if($producto->categoria == "Tematica"):?>
+                                    <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
+                                  <?php endif;?>
+                                <?php endforeach;?>
+                            </select>  
+                        </div>                      
+              </div>
+              <div class="form-group row mt-4">   
+                <div class="col-md-6">
+                  <label for="">Direccion del evento</label>
+                  <input type="text" class="form-control" name="fecha"required>
+                </div>
+                <div class="col-md-3">
+                  <label for="">Contacto</label>
+                  <input type="text" class="form-control" name="fecha"required>
+                </div>
               </div>
               <div class="form-group row mt-4">                                                   
-                <div class="col-md-3">
-                  <label for="">Fecha del Evento:</label>
-                  <input type="date" class="form-control" name="fecha"required>
-                </div>
-              </div>
+                  <div class="col-md-3">
+                    <label for="">Fecha del Evento:</label>
+                    <input type="date" class="form-control" name="fecha"required>
+                  </div> 
+                  <div class="col-md-3">
+                    <label for="comprobante">Comprobante:</label>                                                    
+                    <select name="comprobante" id="comprobante" class="form-control" required>
+                        <option value="">Seleccione...</option> 
+                        <?php foreach($comprobantes as $comprobante): ?>
+                        <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->igv.'*'.$comprobante->serie;?>
+                        <option value="<?php echo $dataComprobante;?>"><?php echo $comprobante->nombre ;?></option>  
+                        <?php endforeach;?>
+                    </select>                                                  
+                    <input type="hidden" id="idcomprobante" name="idcomprobante">
+                    <input type="hidden" id="igv">
+                  </div>                                                
+                  <div class="col-md-3">
+                    <label for="">Serie:</label>
+                    <input type="text" class="form-control" name="serie" id="serie" readonly>
+                    </div>
+                    <div class="col-md-3">
+                    <label for="">Numero:</label>
+                        <input type="text" class="form-control" name="numero"  id="numero" readonly>
+                    </div>                         
+              </div>            
 
-              <div class="mt-4 form-group">
-     
-                <button type="submit" class="btn btn-primary btn-lg btn-flat" >
+              <div class="mt-4 form-group">              
+                <button type="submit" class="btn btn-primary btn-lg" >
                   <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                      Reservar</button>
-
-                <div class="btn btn-success btn-lg btn-flat">                
-                  Realizar Deposito
-                </div>
+                      Reservar</button>                
               </div>
-              <!--
-              <div class="mt-4 product-share">
-                <a href="#" class="text-gray">
-                  <i class="fab fa-facebook-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fab fa-twitter-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fas fa-envelope-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                  <i class="fas fa-rss-square fa-2x"></i>
-                </a>
-              </div>   --->
             </form>
             </div>
             
-          </div>
-          <div class="row mt-4">
-            <nav class="w-100">
-              <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripcion</a>
-                <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Commentarios</a>
-                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
-              </div>
-            </nav>
-            <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> Descripcion de la animacion </div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">  Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div>
-              <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Citur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
-            </div>
           </div>
         </div>
         <!-- /.card-body -->
