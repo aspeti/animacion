@@ -25,6 +25,17 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/footer');
 	}   
 
+
+	public function payment($id)
+	{	
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+	//	$this->load->view('reservas/payment',$id);
+		$this->load->view('reservas/report');
+		$this->load->view('layouts/footer');
+	}   
+
 	public function reservar($id)
 	{		
 		$lista = array(
@@ -39,6 +50,111 @@ class Reserva extends CI_Controller {
 		$this->load->view('reservas/reservar', $lista);
 		$this->load->view('layouts/footer');
 	}
+
+	public function agregar()
+	{
+		$fecha_evento = $this->input->post("fecha");
+		$direccion_evento = $this->input->post("direccion");
+		$contacto = $this->input->post("contacto");	
+		$total = $this->input->post("total");
+		$serie = $this->input->post("serie");	
+		$num_documento = $this->input->post("numero");	
+		$id_comprobante = $this->input->post("idcomprobante");	
+		$id_usuario = $this->session->userdata("id_usuario");	
+		$id_cliente = $this->session->userdata("id_usuario");
+		$id_paquete = $this->input->post("id_paquete");
+
+
+		$adicional = $this->input->post("adicional");
+		$humor = $this->input->post("humor");
+		$tematica = $this->input->post("tematica");
+		
+		// Crear un array con los datos
+		$datos = array(
+			'adicional' => $adicional,
+			'humor' => $humor,
+			'tematica' => $tematica
+		);
+
+	
+
+		//echo 'sub'.$subtotal.'* total:'.$total.'* idcliente'.$idcliente.'* serie'.$serie.'* num_docu:'.$num_documento.'* id_usuario:'.$id_usuario.'* id_comprobante:'.$id_comprobante;
+			
+		$data = array(
+			'fecha_creacion' => date('Y-m-d H:i:s'),
+			'eliminado' => "0",
+			'fecha_evento'=> $fecha_evento,
+			'direccion_evento'=> $direccion_evento,
+			'contacto'=> $contacto,
+			//'img_comprobante'=> $img,
+			'pagado'=> '0',			
+			'total'=> $total,	
+			'serie'=> $serie,	
+			'num_documento'=> $num_documento,
+			'id_comprobante'=> $id_comprobante,
+			'id_usuario'=> $id_usuario,
+			'id_cliente'=> $id_cliente,
+			'id_paquete'=> $id_paquete,
+
+		);
+
+		if($this->Reservar_model->save($data)){
+
+			$idReserva= $this->Reservar_model->lastId();
+			$this->update_Comprobante($id_comprobante);
+			$this->buildDetallePersonalizado($personalizado,$idReserva);			
+			if($this->session->userdata('rol') == 1){
+				redirect(base_url()."reserva");
+			}else{
+				redirect(base_url()."reserva");
+			}
+			
+
+		}else{
+			redirect(base_url()."reserva");		}
+
+	}
+
+	public function buildDetallePersonalizado($productos,$idReserva){
+        for($i=0; $i<count($productos);$i++){
+        $data = array(
+            'producto_id_producto' => $productos[$i],
+            'reserva_id_reserva' => $idReserva,   
+        );
+        $this->Reservar_model->save_personalizado($data);    
+        }
+   }
+	protected function update_Comprobante($idComprobante)
+	{
+		$comprobanteActual = $this->Comprobante_model->getComprobante();
+		$data = array(
+			'cantidad' => $comprobanteActual->cantidad + 1, 
+		);
+
+		$this->Comprobante_model->updateComprobante($idComprobante,$data);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public function viewReport()
 	{
 		$lista = array(
@@ -67,8 +183,7 @@ class Reserva extends CI_Controller {
 			"ventas" => $this->Reservar_model->getAllreservasforFecha($FechaInicial, $FechaFinal),					
 		);
 
-		$this->load->view('fpdf\Pruebah.php', $data);	
-		
+		$this->load->view('fpdf\Pruebah.php', $data);		
 		
 	}
 

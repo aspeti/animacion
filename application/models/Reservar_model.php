@@ -32,4 +32,24 @@ class Reservar_model extends CI_Model {
     $resultados = $this->db->get("reserva");
     return $resultados->result();
   }
+
+    public function lastId(){
+    return $this->db->insert_id();
+    }
+
+
+
+   public function save($data){
+        return $this->db->insert("reserva",$data);
+   }
+
+
+
+
+   public function save_personalizado($data){ 
+        return $this->db->insert("personalizado",$data);   
+   }
+
+
+
 }

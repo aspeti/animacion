@@ -31,7 +31,7 @@
               </div>              
             </div>            
             <div class="col-12 col-sm-6">
-            <form action="<?php echo base_url();?>Ressoloerva/viewPayment" method="POST">
+            <form action="<?php echo base_url();?>reserva/agregar" method="POST">
             
               <h3 class="my-3"><?php echo $paquete->nombre;?></h3>              
               <?php if(!empty($detalles)):?>                       
@@ -75,9 +75,11 @@
               </div> 
 
               <div class="bg-gray py-2 px-3 mt-4">
-                <h2 class="mb-0">
+                <h2 class="mb-0" >
                 <?php echo $paquete->precio;?>
                 </h2>
+                <input type="hidden" name="total" id="total" value="<?php echo $paquete->precio;?>">
+                <input type="hidden" name="id_paquete" id="id_paquete" value="<?php echo $paquete->id_paquete;?>">
                 <h4 class="mt-0">
                   <small>Precio en Bs</small>
                 </h4>
