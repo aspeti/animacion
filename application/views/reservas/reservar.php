@@ -105,23 +105,18 @@
                     <label for="fecha">Fecha del Evento:</label>
                     <input type="date" class="form-control" name="fecha" id="fecha" required>
                   </div> 
-                  <div class="col-md-3">
-                    <label for="comprobante">Comprobante:</label>                                                    
-                    <select name="comprobante" id="comprobante" class="form-control" required>
-                        <option value="">Seleccione...</option>                      
-                        <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->serie;?>
-                        <option value="<?php echo $dataComprobante;?>"><?php echo $comprobante->nombre ;?></option>  
-                      
-                    </select>                                                  
+                  <div class="col-md-3">                   
+                    <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->serie;?>   
+                    <input type="hidden" id="comprobante" name="comprobante" value="<?php echo $dataComprobante;?>">                                                
                     <input type="hidden" id="idcomprobante" name="idcomprobante">                   
                   </div>                                                
                   <div class="col-md-3">
-                    <label for="">Serie:</label>
-                    <input type="text" class="form-control" name="serie" id="serie" readonly>
+                    <label for=""></label>
+                    <input type="hidden" class="form-control" name="serie" id="serie" readonly>
                     </div>
                     <div class="col-md-3">
-                    <label for="">Numero:</label>
-                        <input type="text" class="form-control" name="numero"  id="numero" readonly>
+                    <label for=""></label>
+                        <input type="hidden" class="form-control" name="numero"  id="numero" readonly>
                     </div>                         
               </div>            
 
