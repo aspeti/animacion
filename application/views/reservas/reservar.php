@@ -25,67 +25,34 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
               <div class="col-12">
               <img src="<?php echo base_url().$paquete->img;?>" class="product-image" alt="Product Image">
               </div>              
             </div>            
             <div class="col-12 col-sm-6">
-            <form action="<?php echo base_url();?>reserva/agregar" method="POST">
-            
-              <h3 class="my-3"><?php echo $paquete->nombre;?></h3>              
+            <form action="<?php echo base_url();?>reserva/agregar" method="POST">            
+              
+              <h3 class="mt-4 mb-0"> Paquete :<span class="font-weight-bold" ><i class=" fa-solid  fa-bounce" style="color: #06a225;"><?php echo $paquete->nombre;?></i></span></h3>
+             
+              <h5 class="my-3">Detalles:</h5>            
               <?php if(!empty($detalles)):?>                       
                 <?php foreach($detalles as $detalle):?>
-                  <p><?php echo $detalle->cantidad.' '.$detalle->nombre.' '.$detalle->descripcion?></p>
+                  <p><span><i class="fa-solid fa-star fa-beat fa-lg" style="color: #14db14;"></i> <?php echo $detalle->cantidad.' '.$detalle->nombre.' '.$detalle->descripcion?></i></span></p>
                   <?php endforeach;?>
               <?php endif; ?> 
-              <hr>
-              <h4>Colores de Vestuario <small>Selecciona una</small></h4>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-default text-center active">
-                  <input type="radio" name="color_option" id="color_option_a1" autocomplete="off" checked>
-                  Verde
-                  <br>
-                  <i class="fas fa-circle fa-2x text-green"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a2" autocomplete="off">
-                  Azul
-                  <br>
-                  <i class="fas fa-circle fa-2x text-blue"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a3" autocomplete="off">
-                  Purpura
-                  <br>
-                  <i class="fas fa-circle fa-2x text-purple"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a4" autocomplete="off">
-                  Red
-                  <br>
-                  <i class="fas fa-circle fa-2x text-red"></i>
-                </label>
-                <label class="btn btn-default text-center">
-                  <input type="radio" name="color_option" id="color_option_a5" autocomplete="off">
-                  Orange
-                  <br>
-                  <i class="fas fa-circle fa-2x text-orange"></i>
-                </label>
-              </div> 
+              <hr>           
+
 
               <div class="bg-gray py-2 px-3 mt-4">
-                <h2 class="mb-0" >
-                <?php echo $paquete->precio;?>
+                <h2 class="m-3" >          
+                <span><i class="fa-solid fa-sack-dollar" style="color: #14db14;"></i> <?php echo $paquete->precio." Bs"?></i></span>
                 </h2>
                 <input type="hidden" name="total" id="total" value="<?php echo $paquete->precio;?>">
-                <input type="hidden" name="id_paquete" id="id_paquete" value="<?php echo $paquete->id_paquete;?>">
-                <h4 class="mt-0">
-                  <small>Precio en Bs</small>
-                </h4>
-              </div>
-              
-              <div class="mt-4 row">
+                <input type="hidden" name="id_paquete" id="id_paquete" value="<?php echo $paquete->id_paquete;?>">               
+              </div>          
+              <h6 class="mt-4 mb-0 font-weight-bold">DATOS DEL EVENTO</h6>
+              <p class="m-0"><small>Selecciona las opciones que mejor se adapte a tu evento, sin costo adicional.</small> </p>
+              <div class="mt-0 row">
                         <div class="col-md-3">
                             <label for="adicional">Producto Adicional:</label>
                             <select name="adicional" id="adicional" class="form-control" required>
@@ -98,7 +65,7 @@
                             </select>  
                         </div>   
                         <div class="col-md-3">
-                            <label for="humor">Selecccion de Chistes:</label>
+                            <label for="humor">Humor:</label>
                             <select name="humor" id="humor" class="form-control" required>
                                 <option value="1" selected>Seleccione...</option>  
                                 <?php foreach($productos as $producto):?>
@@ -120,13 +87,16 @@
                             </select>  
                         </div>                      
               </div>
-              <div class="form-group row mt-4">   
+              
+              <h6 class="mt-4 mb-0 font-weight-bold">DATOS DEL EVENTO:</h6>
+              <p class="m-0"><small>Los datos del evento es importante para que nuestro equipo llegue con facilidad.</small> </p>
+              <div class="form-group row mt-1">   
                 <div class="col-md-6">
-                  <label for="direccion">Direccion del evento</label>
+                  <label for="direccion"><span class="pr-2"><i class="fa-solid fa-location-dot fa-beat" style="color: #0c5de9;"></i></span>Direccion:</label>
                   <input type="text" class="form-control" name="direccion" id="direccion" required>
                 </div>
                 <div class="col-md-3">
-                  <label for="contacto">Contacto:</label>
+                <label for="direccion"><span class="pr-2"><i class="fa-solid fa-phone fa-beat" style="color: #0a5ceb;"></i></span>Contacto:</label>
                   <input type="text" class="form-control" name="contacto" id="contacto" required>
                 </div>
               </div>
