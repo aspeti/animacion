@@ -61,7 +61,7 @@
                               <i class="fas fa-comments"></i>
                             </a>
                             <a href="<?php echo base_url();?>reserva/reservar/<?php echo $paquete->id_paquete;?>" class="btn btn-sm btn-primary">
-                              <i class="fas fa-user"></i> Ver Detalles
+                              <i class="fas fa-user"></i> Ver Paquete
                             </a>
                           </div>
                         </div>
