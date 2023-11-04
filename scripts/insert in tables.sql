@@ -15,7 +15,8 @@ insert into categoria (id_categoria,nombre, descripcion, eliminado)values
 (4,"Tematica","Vestuario",0);
 
 insert into producto (id_producto,nombre, descripcion,precio, eliminado,id_categoria)values
-(1,"Payaso Trapito","Show de 3 horas con payaso Trapito ",250,0,1),
-(2,"Humor infantil","Humor infantil durante el Show",200,0,3),
-(3,"Pinta caritas","Pinta caritas para 20 niños",100,0,2),
-(4,"Anime","Animadores con disfraces de anime",150,0,4);
+(1,"Default","Default",0,0,1),
+(2,"Payaso Trapito","Show de 3 horas con payaso Trapito ",250,0,1),
+(3,"Humor infantil","Humor infantil durante el Show",200,0,3),
+(4,"Pinta caritas","Pinta caritas para 20 niños",100,0,2),
+(5,"Anime","Animadores con disfraces de anime",150,0,4);

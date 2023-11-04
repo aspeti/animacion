@@ -89,6 +89,7 @@
                         <div class="col-md-3">
                             <label for="adicional">Producto Adicional:</label>
                             <select name="adicional" id="adicional" class="form-control" required>
+                                <option value="1" selected>Seleccione...</option>   
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Adicional"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
@@ -99,6 +100,7 @@
                         <div class="col-md-3">
                             <label for="humor">Selecccion de Chistes:</label>
                             <select name="humor" id="humor" class="form-control" required>
+                                <option value="1" selected>Seleccione...</option>  
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Humor"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
@@ -109,6 +111,7 @@
                         <div class="col-md-3">                                    
                             <label for="tematica">Tematica:</label>
                             <select name="tematica" id="tematica" class="form-control" required>
+                                <option value="1" selected>Seleccione...</option>  
                                 <?php foreach($productos as $producto):?>
                                   <?php if($producto->categoria == "Tematica"):?>
                                     <option value="<?php echo $producto->id_producto; ?>"> <?php echo $producto->nombre;?></option>
