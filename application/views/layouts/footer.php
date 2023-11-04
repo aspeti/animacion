@@ -150,8 +150,9 @@
 
 
        //-- -------------------------- fro every change on comprobante--------------------------->
-$("#comprobante").on("change", function(){
-      option = $(this).val() ;// if option is changed
+$("#fecha").on("change", function(){
+      option = $("#comprobante").val() ;// if option is changed
+      console.log(option)
      
       if( option!=""){
         infoComprobante = option.split("*"); // make split
