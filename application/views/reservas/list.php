@@ -32,12 +32,12 @@
                   <thead>                 
                   <tr>
                     <th>#</th>
-                    <th>Nombre</th>
-                    <th>Contacto</th>
-                    <th>Fecha Creacion</th>
+                    <th>Cliente</th>                  
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
+                    <th>Deposito</th>
                     <th>Total</th>
+                  
                   </tr>
                   </thead>
                   <tbody>
@@ -46,12 +46,11 @@
                             <?php foreach($reservas as $reserva):?>
                                       <tr>
                                         <td><?php echo $cont;?></td>
-                                        <td><?php echo $reserva->cliente;?></td>
-                                        <td><?php echo $reserva->contacto;?></td>
-                                        <td><?php echo $reserva->fecha_creacion;?></td>
+                                        <td><?php echo $reserva->cliente;?></td>  
                                         <td><?php echo $reserva->fecha_evento;?></td> 
                                         <td><?php echo $reserva->direccion_evento;?></td> 
-                                        <td><?php echo $reserva->total;?></td> 
+                                        <td><?php echo $reserva->pagado ? "Si" : "NO"; ?></td>
+                                        <td><?php echo $reserva->total;?></td>                                         
                                       </tr>  
                               <?php $cont++;?>
                         <?php endforeach;?>
@@ -59,14 +58,12 @@
                   </tbody>     
                   <tr>
                     <th>#</th>
-                    <th>Nombre</th>
-                    <th>Contacto</th>
-                    <th>Fecha Creacion</th>
+                    <th>Cliente</th> 
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
-                    <th>Total</th>
+                    <th>Deposto</th>
+                    <th>Total</th>                   
                   </tr>
-
                 </table>
               </div>
               <!-- /.card-body -->
