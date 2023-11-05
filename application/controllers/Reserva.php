@@ -56,7 +56,7 @@ class Reserva extends CI_Controller {
 	public function misreservas()
 	{	
 		$userId = $this->session->userdata('id_usuario');
-		$userId;
+	
 		$lista = array(
 			'reservas'=> $this->Reservar_model->getReservasByClient($userId)		
 		); 
