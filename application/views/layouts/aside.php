@@ -21,25 +21,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <!--li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-            </ul>
-          </li-->
+
           <?php if($this->session->userdata('rol') == 1) { ?>
                   <li class="nav-item">
                     <!--<a href="#" class="nav-link">                           
@@ -100,11 +82,9 @@
                       <p>Reservas</p>
                       </a>
                   </li>   
-          <?php if($this->session->userdata('rol') == 2) { ?>       
-              
-                
+          <?php if($this->session->userdata('rol') == 2) { ?>   
                   <li class="nav-item">
-                      <a href="<?php echo base_url();?>#" class="nav-link">
+                      <a href="<?php echo base_url();?>reserva/misreservas" class="nav-link">
                       <i class="fas fa-shopping-basket nav-icon"></i>
                       <p>Mis Reservas</p>
                       </a>
