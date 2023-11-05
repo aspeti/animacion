@@ -41,14 +41,25 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-sm-4">
-                    
+                  <div class="col-sm-4 mt-4">
+
+                      <form action="<?php echo base_url();?>reserva/updateDeposito" method="POST"> 
+                            <h6 class="mt-4 mb-0 font-weight-bold">POR FAVOR SIGUE LOS SIGUIENTES PASOS PARA CONTINUAR:</h6>                
+                          
+                            </br>
+                            <p><span class="pr-2"><i class="fa-solid fa-check fa-beat" style="color: #0ee11c;"></i></i></span>Paso 1: Utiliza el codigo QR para realizar el deposito desde la plataforma de tu preferencia</p>
+                            <p><span class="pr-2"><i class="fa-solid fa-check fa-beat" style="color: #0ee11c;"></i></i></span>Paso 2: Envia el comprobante por whatsapp, presionando en el boton correpondiente</p>
+                          
+                            <p class="pb-4"><span class="pr-2"><i class="fa-solid fa-check fa-beat" style="color: #0ee11c;"></i></i></span>Paso 3: Presiona el boton continuar</p>
+
+                            <a href="https://api.whatsapp.com/send?phone=59170771664&text=Hola!%2C%20Realize%20la%20reserva%20de%20un%20paquete%2C%0Aenvio%20el%20comprobante%20de%20pago." target="_blank" class="btn btn-success"><span><i class="fa-brands fa-whatsapp"></i></i></span> Enviar comprobante</a>
+                          
+                            <input type="hidden" name="idReserva" id="idReserva" value="<?php echo $idReserva?>">
+                            <button  type="submit" class="btn btn-primary">continuar</button> 
+                      </form>
                   </div>
                   <div class="col-sm-4">
-                    <img src="<?php echo base_url()."assets\img\qr.jpeg"?>" alt="QR Code" width="200" height="200"><br><br>
-                    <p>Realice el depósito y suba el comprobante</p>
-                    <input type="file" name="fileToUpload" id="fileToUpload"><br><br>
-                    <button type="submit" class="btn btn-primary">Subir Comprobante</button> 
+                    <img src="<?php echo base_url()."assets/img/qr.jpeg"?>" alt="QR Code" width="400" height="400"><br><br>                    
                   </div>
                   <div class="col-sm-4">
                     

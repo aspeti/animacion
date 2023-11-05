@@ -26,13 +26,15 @@ class Reserva extends CI_Controller {
 	}   
 
 
-	public function payment($id)
+	public function payment($idReserva)
 	{	
+		$data = array(
+			'idReserva'=> $idReserva,			
+		); 
 
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
-	//	$this->load->view('reservas/payment',$id);
-		$this->load->view('reservas/report');
+		$this->load->view('reservas/payment',$data);	
 		$this->load->view('layouts/footer');
 	}   
 
@@ -48,6 +50,20 @@ class Reserva extends CI_Controller {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/aside');
 		$this->load->view('reservas/reservar', $lista);
+		$this->load->view('layouts/footer');
+	}
+
+	public function misreservas()
+	{	
+		$userId = $this->session->userdata('id_usuario');
+		$userId;
+		$lista = array(
+			'reservas'=> $this->Reservar_model->getReservasByClient($userId)		
+		); 
+
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/aside');
+		$this->load->view('reservas/list', $lista);
 		$this->load->view('layouts/footer');
 	}
 
@@ -70,13 +86,7 @@ class Reserva extends CI_Controller {
 		$tematica = $this->input->post("tematica");
 		
 		// Crear un array con los datos
-		$datos = array(
-			'adicional' => $adicional,
-			'humor' => $humor,
-			'tematica' => $tematica
-		);
-
-	
+		$personalizado = array($adicional,$humor,$tematica);
 
 		//echo 'sub'.$subtotal.'* total:'.$total.'* idcliente'.$idcliente.'* serie'.$serie.'* num_docu:'.$num_documento.'* id_usuario:'.$id_usuario.'* id_comprobante:'.$id_comprobante;
 			
@@ -106,13 +116,26 @@ class Reserva extends CI_Controller {
 			if($this->session->userdata('rol') == 1){
 				redirect(base_url()."reserva");
 			}else{
-				redirect(base_url()."reserva");
+				redirect(base_url()."reserva/payment/".$idReserva);
 			}
 			
 
 		}else{
 			redirect(base_url()."reserva");		}
 
+	}
+
+
+	public function updateDeposito(){
+		$idReserva = $this->input->post("idReserva");		
+		$data = array(
+            'pagado' => "1",            
+        );
+		if($this->Reservar_model->update($idReserva, $data)){						
+			if($this->session->userdata('rol') == 2){
+				redirect(base_url()."reserva/misreservas");
+			}	
+		}
 	}
 
 	public function buildDetallePersonalizado($productos,$idReserva){
