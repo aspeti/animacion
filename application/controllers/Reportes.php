@@ -83,15 +83,12 @@ class Reportes extends CI_Controller {
 	
 
 	public function comprobante($id)
-	{	
-				
+	{					
 		$data = array(
-			"reserva" => $this->Reporte_model->getReservaByID($id),
-			
+			"reserva" => $this->Reporte_model->getReservaByID($id),			
 		);	
 
 		$this->load->view('reportes/fpdf/recibo',  $data);
-
 	}
 
 }

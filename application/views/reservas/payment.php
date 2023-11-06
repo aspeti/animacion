@@ -52,7 +52,7 @@
                           
                             <p class="pb-4"><span class="pr-2"><i class="fa-solid fa-check fa-beat" style="color: #0ee11c;"></i></i></span>Paso 3: Presiona el boton continuar</p>
 
-                            <a href="https://api.whatsapp.com/send?phone=59170771664&text=Hola!%2C%20Realize%20la%20reserva%20de%20un%20paquete%2C%0Aenvio%20el%20comprobante%20de%20pago." target="_blank" class="btn btn-success"><span><i class="fa-brands fa-whatsapp"></i></i></span> Enviar comprobante</a>
+                            <a href="https://api.whatsapp.com/send?phone=59175926339&text=Hola!%2C%20Realize%20la%20reserva%20de%20un%20paquete%2C%0Aenvio%20el%20comprobante%20de%20pago." target="_blank" class="btn btn-success"><span><i class="fa-brands fa-whatsapp"></i></i></span> Enviar comprobante</a>
                           
                             <input type="hidden" name="idReserva" id="idReserva" value="<?php echo $idReserva?>">
                             <button  type="submit" class="btn btn-primary">continuar</button> 
