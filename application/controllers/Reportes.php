@@ -65,8 +65,8 @@ class Reportes extends CI_Controller {
 	{	
 				
 		$data = array(
-			"reserva" => $this->Reporte_model->getReservaByID($id),	
-			//"productos" => $this->Reporte_model->getAllDetalleById($id),
+			"reserva" => $this->Reporte_model->getReservaByID($id),
+			
 		);	
 
 		$this->load->view('reportes/fpdf/recibo',  $data);

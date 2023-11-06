@@ -70,7 +70,7 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(85, 10, utf8_decode("Direccion: CAlle 25 de mayo Nro 456"), 0, 0, '', 0);
+      $pdf->Cell(85, 10, utf8_decode("Direccion: Calle 25 de mayo Nro 456"), 0, 0, '', 0);
       $pdf->Ln(5);
 
       $pdf->Cell(10);  // mover a la derecha
@@ -123,13 +123,13 @@ $pdf->SetY(20);
       $pdf->Cell(10, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(30, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(60, 10, utf8_decode(""), 0, 0, 'C', 0);
-      $pdf->Cell(50, 10, utf8_decode("Valor Total Bs: "), 1, 0, 'C', 0);
+      $pdf->Cell(50, 10, utf8_decode("Total Bs: "), 1, 0, 'C', 0);
       $pdf->Cell(25, 10, utf8_decode($reserva->total), 1, 1, 'C', 0); 
       $pdf->Ln(5);  
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(15, 10, utf8_decode("Recibo Original: ZEIDA ENTRERTENIMIENTOS" ), 0, 0, '', 0);
+      $pdf->Cell(15, 10, utf8_decode("Recibo Original: ZEIDA ENTRETENIMIENTOS" ), 0, 0, '', 0);
       $pdf->Ln(5);
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
