@@ -37,6 +37,7 @@
                     <th>Direccion</th>
                     <th>Deposito</th>
                     <th>Total</th>
+                    <th>Recibo</th>
                   
                   </tr>
                   </thead>
@@ -50,7 +51,9 @@
                                         <td><?php echo $reserva->fecha_evento;?></td> 
                                         <td><?php echo $reserva->direccion_evento;?></td> 
                                         <td><?php echo $reserva->pagado ? "Si" : "NO"; ?></td>
-                                        <td><?php echo $reserva->total;?></td>                                         
+                                        <td><?php echo $reserva->total;?></td>  
+                                        <td> <a class="btn btn-warning" href="<?php echo base_url();?>reportes/comprobante/<?php echo $reserva->id_reserva;?>" 
+                                        class="btn btn-info" target="_blank"><span class="fas fa-file-text" ></span></a><td>                                      
                                       </tr>  
                               <?php $cont++;?>
                         <?php endforeach;?>
@@ -62,7 +65,8 @@
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
                     <th>Deposto</th>
-                    <th>Total</th>                   
+                    <th>Total</th>  
+                    <th>Recibo</th>                 
                   </tr>
                 </table>
               </div>
