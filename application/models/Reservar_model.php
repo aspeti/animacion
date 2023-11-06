@@ -55,16 +55,7 @@ class Reservar_model extends CI_Model {
     $this->db->from("reserva r");
     $this->db->join("usuario u", "u.id_usuario = r.id_usuario");   
     $this->db->where("r.id_cliente",$userid);   
-    $resultados = $this->db->get("reserva");
-    return $resultados->result();
-
-
-
-    $this->db->select("r.*, u.nombre as cliente");
-    $this->db->from("reserva r");
-    $this->db->join("usuario u", "u.id_usuario = r.id_usuario");   
-    $this->db->where("r.id_cliente",$userid);   
-    $resultados = $this->db->get("reserva");
+    $resultados = $this->db->get();
     return $resultados->result();
   }
 
