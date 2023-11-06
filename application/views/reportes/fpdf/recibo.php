@@ -30,7 +30,7 @@ class PDF extends FPDF
       $this->Cell(85, 10, utf8_decode("NOTA DE RESERVA"), 0, 0, '', 0);
       $this->Ln(45);
 
-      $this->SetFillColor(53, 96, 69); //colorFondo
+      $this->SetFillColor(253, 126, 20); //colorFondo
       $this->SetTextColor(255, 255, 255); //colorTexto
       $this->SetDrawColor(163, 163, 163); //colorBorde
       $this->SetFont('Arial', 'B', 11);
@@ -70,7 +70,7 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(85, 10, utf8_decode("Direccion: Calle 25 de mayo Nro 456"), 0, 0, '', 0);
+      $pdf->Cell(85, 10, utf8_decode("Direccion: Av. Petrolera Km 7"), 0, 0, '', 0);
       $pdf->Ln(5);
 
       $pdf->Cell(10);  // mover a la derecha

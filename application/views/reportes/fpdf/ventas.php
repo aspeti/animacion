@@ -29,7 +29,7 @@ class PDF extends FPDF
       $this->SetTextColor(0, 0, 0);
       $this->Cell(45);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("Direccion : Calle 25 de MAyo #456"), 0, 0, '', 0);
+      $this->Cell(85, 10, utf8_decode("Direccion : Av. Petrolera Km 7"), 0, 0, '', 0);
       $this->Ln(30);
 
       /* TITULO DE LA TABLA */
@@ -44,7 +44,7 @@ class PDF extends FPDF
 
       /* CAMPOS DE LA TABLA */
       //color
-      $this->SetFillColor(0, 0, 0); //colorFondo
+      $this->SetFillColor(253, 126, 20); //colorFondo
      //$this->SetFillColor(0, 126, 20); //colorFondo
       $this->SetTextColor(255, 255, 255); //colorTexto
       $this->SetDrawColor(163, 163, 163); //colorBorde
