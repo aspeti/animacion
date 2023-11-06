@@ -54,5 +54,15 @@ class Reporte_model extends CI_Model {
         
 
     }
+    public function getAllEstadisticas(){          
+        $this->db->select("p.nombre as paquete, COUNT(*) as cantidad, SUM(r.total) as total");
+        $this->db->from("reserva r");
+        $this->db->join("paquete p", "p.id_paquete = r.id_paquete");
+        $this->db->where("r.eliminado","0");
+        $this->db->group_by("r.id_paquete");
+        $resultados = $this->db->get();
+        return $resultados->result();
+    }
+
 
 }

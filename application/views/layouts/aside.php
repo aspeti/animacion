@@ -71,6 +71,12 @@
                           <p>Reportes</p>
                         </a>
                       </li>   
+                      <li class="nav-item">
+                        <a href="<?php echo base_url();?>reportes/estadistica" class="nav-link">
+                          <i class="fas fa-file-text nav-icon"></i>
+                          <p>Estadistica</p>
+                        </a>
+                      </li>  
                     <!--</ul>-->
                   </li>
 
@@ -81,7 +87,7 @@
                       <i class="fas fa-gifts nav-icon"></i>
                       <p>Reservas</p>
                       </a>
-                  </li>   
+                  </li>    
           <?php if($this->session->userdata('rol') == 2) { ?>   
                   <li class="nav-item">
                       <a href="<?php echo base_url();?>reserva/misreservas" class="nav-link">
