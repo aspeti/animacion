@@ -66,7 +66,7 @@
                     <!--</ul>-->
                     <!--<ul class="nav nav-treeview">-->
                       <li class="nav-item">
-                        <a href="<?php echo base_url();?>reserva/viewReport" class="nav-link">
+                        <a href="<?php echo base_url();?>reportes" class="nav-link">
                           <i class="fas fa-file-text nav-icon"></i>
                           <p>Reportes</p>
                         </a>
