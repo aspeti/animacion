@@ -85,11 +85,21 @@ $pdf->SetY(20);
 
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
-      $pdf->Cell(85, 10, utf8_decode("Sr.(a): ".$reserva->cliente), 0, 0, '', 0);
+      $pdf->Cell(65, 10, utf8_decode("Sr.(a): ".$reserva->cliente), 0, 0, '', 0);
       $hoy = date('d/m/Y');
-      $pdf->Cell(15, 10, utf8_decode("Fecha: ".$hoy), 0, 0, '', 0);
-      $pdf->Ln(5);
+      $pdf->Cell(55, 10, utf8_decode("Fecha: ".$hoy), 0, 0, '', 0);
+      $estado = 'Por confirmar';
+      if($reserva->confirmacion == 0){
+         $estado = 'Por confirmar';
+      }else if($reserva->confirmacion ==1){
+         $estado = 'Confirmado';
+      }else{
+         $estado = 'Cancelado';
+      }
+      $pdf->Cell(15, 10, utf8_decode("Estado: ".$estado), 0, 0, '', 0);
 
+      $pdf->Ln(5);
+      
       /*
       $pdf->Cell(10);  // mover a la derecha
       $pdf->SetFont('Arial', 'B', 10);
