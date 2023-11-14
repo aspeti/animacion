@@ -35,7 +35,7 @@
                     <th>Cliente</th>                  
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
-                    <th>Pago <Ri:d></Ri:d>ealizado</th>
+                    <th>Pago Realizado</th>
                     <th>Estado de Reserva</th></th>
                     <th>Total</th>
                     <th>Acciones</th>
