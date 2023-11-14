@@ -36,6 +36,7 @@
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
                     <th>Deposito</th>
+                    <th>Estado de Reserva</th></th>
                     <th>Total</th>
                     <th>Recibo</th>
                   
@@ -51,6 +52,15 @@
                                         <td><?php echo $reserva->fecha_evento;?></td> 
                                         <td><?php echo $reserva->direccion_evento;?></td> 
                                         <td><?php echo $reserva->pagado ? "Si" : "NO"; ?></td>
+                                        <!---td></?php echo $reserva->confirmacion ? "CONFIRMADA" : "POR CONFIRMAR"; ?></-td--> 
+                                        <?php if($reserva->confirmacion == 0){?>
+                                          <td><span class="font-weight-bold" style="color: #FD7E14;">Por Confirmar</span></td> 
+                                        <?php } elseif ($reserva->confirmacion == 1){ ?> 
+                                          <td><span class="font-weight-bold" ><i class="fa-solid fa-check" style="color: #039900;">Confirmado</i></span></td> 
+                                        <?php } else { ?>  
+                                          <td><span class="font-weight-bold" ><i class="fa-solid fa-check" style="color: #DC3545;">Cancelado</i></span></td> 
+                                          <?php } ; ?>  
+                                          
                                         <td><?php echo $reserva->total;?></td>  
                                         <td> <a class="btn btn-warning" href="<?php echo base_url();?>reportes/comprobante/<?php echo $reserva->id_reserva;?>" 
                                         class="btn btn-info" target="_blank"><span class="fas fa-file-text" ></span></a><td>                                      
@@ -65,6 +75,7 @@
                     <th>Fecha Evento</th>
                     <th>Direccion</th>
                     <th>Deposto</th>
+                    <th>Estado de Reserva</th></th>
                     <th>Total</th>  
                     <th>Recibo</th>                 
                   </tr>
