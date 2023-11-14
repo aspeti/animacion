@@ -50,7 +50,7 @@
                 <input type="hidden" name="total" id="total" value="<?php echo $paquete->precio;?>">
                 <input type="hidden" name="id_paquete" id="id_paquete" value="<?php echo $paquete->id_paquete;?>">               
               </div>          
-              <h6 class="mt-4 mb-0 font-weight-bold">DATOS DEL EVENTO</h6>
+              <h6 class="mt-4 mb-0 font-weight-bold">PERSONALIZA TU PAQUETE</h6>
               <p class="m-0"><small>Selecciona las opciones que mejor se adapte a tu evento, sin costo adicional.</small> </p>
               <div class="mt-0 row">
                         <div class="col-md-3">
@@ -88,11 +88,11 @@
                         </div>                      
               </div>
               
-              <h6 class="mt-4 mb-0 font-weight-bold">DATOS DEL EVENTO:</h6>
+              <h6 class="mt-4 mb-0 font-weight-bold">DEL LUGAR DEL EVENTO:</h6>
               <p class="m-0"><small>Los datos del evento es importante para que nuestro equipo llegue con facilidad.</small> </p>
               <div class="form-group row mt-1">   
                 <div class="col-md-6">
-                  <label for="direccion"><span class="pr-2"><i class="fa-solid fa-location-dot fa-beat" style="color: #0c5de9;"></i></span>Direccion:</label>
+                  <label for="direccion"><span class="pr-2"><i class="fa-solid fa-location-dot fa-beat" style="color: #0c5de9;"></i></span>Direccion del evento:</label>
                   <input type="text" class="form-control" name="direccion" id="direccion" required>
                 </div>
                 <div class="col-md-3">
