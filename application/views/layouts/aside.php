@@ -85,17 +85,21 @@
                   <li class="nav-item">
                       <a href="<?php echo base_url();?>reserva" class="nav-link">
                       <i class="fas fa-gifts nav-icon"></i>
-                      <p>Reservas</p>
+                      <p>Reservar Evento</p>
                       </a>
                   </li>    
-          <?php if($this->session->userdata('rol') == 2) { ?>   
+            
                   <li class="nav-item">
                       <a href="<?php echo base_url();?>reserva/misreservas" class="nav-link">
                       <i class="fas fa-shopping-basket nav-icon"></i>
+                      <?php if($this->session->userdata('rol') == 2) { ?> 
                       <p>Mis Reservas</p>
+                      <?php }else{?>
+                        <p>Reservas realizadas</p>
+                      <?php }?>
                       </a>
                   </li>   
-          <?php }?>          
+                   
                          
         </ul>
       </nav>

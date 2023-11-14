@@ -120,7 +120,7 @@ class Reserva extends CI_Controller {
 			$this->update_Comprobante($id_comprobante);
 			$this->buildDetallePersonalizado($personalizado,$idReserva);			
 			if($this->session->userdata('rol') == 1){
-				redirect(base_url()."reserva");
+				redirect(base_url()."reserva/misreservas");
 			}else{
 				redirect(base_url()."reserva/payment/".$idReserva);
 			}
@@ -163,6 +163,29 @@ class Reserva extends CI_Controller {
 		$this->Comprobante_model->updateComprobante($idComprobante,$data);
 	}
 
+
+	public function confirmar($id_reserva)
+    {
+		$data = array(
+			'id_reserva' => $id_reserva, 
+		);
+
+		$this->load->view('reservas/confirmation',$data);
+    }
+
+	public function saveConfirmar()
+	{
+		//$comprobanteActual = $this->Reservar_model->getReservaById($id_reserva);
+
+		$confirmacion = $this->input->post("confirmacion");
+		$id_reserva = $this->input->post("idreserva");
+		$data = array(
+			'confirmacion' => $confirmacion,
+		);
+		if($this->Reservar_model->update($id_reserva,$data)){						
+			redirect(base_url()."reserva/misreservas");				
+		}
+	}
 
 
 
