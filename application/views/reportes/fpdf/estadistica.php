@@ -124,7 +124,7 @@ $pdf->SetY(20);
       $pdf->Cell(10, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(70, 10, utf8_decode(""), 0, 0, 'C', 0);
       $pdf->Cell(45, 10, utf8_decode("Total Bs: "), 1, 0, 'C', 0);
-      $pdf->Cell(40, 10, utf8_decode($reserva->total), 1, 1, 'C', 0); 
+      $pdf->Cell(40, 10, utf8_decode($total), 1, 1, 'C', 0); 
       $pdf->Ln(5);  
 
       $pdf->Cell(100);  // mover a la derecha
