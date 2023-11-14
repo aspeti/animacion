@@ -183,6 +183,7 @@ CREATE TABLE IF NOT EXISTS `animacion_db`.`reserva` (
   `total` DECIMAL(6,2) NULL,
   `serie` VARCHAR(45) NULL,
   `num_documento` VARCHAR(45) NULL,
+  `confirmacion` TINYINT NULL,
   `id_comprobante` INT NOT NULL,
   `id_usuario` INT(11) NOT NULL,
   `id_cliente` INT(11) NULL,
