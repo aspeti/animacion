@@ -103,14 +103,14 @@ $this->Cell(355, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pa
 $pdf->Cell(45);  // mover a la derecha
 $pdf->SetFont('Arial', 'B', 10);
 $hoy = date('d/m/Y');
-$pdf->Cell(59, 10, utf8_decode("Fecha Inicial : ".$fechaInicio), 0, 0, '', 0);
+$pdf->Cell(59, 10, utf8_decode("Fecha Inicial : ".date('d-m-Y', strtotime($fechaInicio))), 0, 0, '', 0);
 $pdf->Ln(5);
 
 
 /* COREEO */
 $pdf->Cell(45);  // mover a la derecha
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(85, 10, utf8_decode("Fecha Final : ".$fechaFinal), 0, 0, '', 0);
+$pdf->Cell(85, 10, utf8_decode("Fecha Final : ".date('d-m-Y', strtotime($fechaFinal))), 0, 0, '', 0);  
 $pdf->Ln(25);
 
 
@@ -137,7 +137,7 @@ foreach($reservas as $reserva):
    $pdf->Cell(10, 10, utf8_decode($cont), 1, 0, 'C', 0);
    $pdf->Cell(80, 10, utf8_decode($reserva->cliente), 1, 0, 'C', 0);
    $pdf->Cell(60, 10, utf8_decode($reserva->paquete), 1, 0, 'C', 0);
-   $pdf->Cell(50, 10, utf8_decode($reserva->fecha_evento), 1, 0, 'C', 0);
+   $pdf->Cell(50, 10, utf8_decode(date('d-m-Y H:i', strtotime($reserva->fecha_evento))), 1, 0, 'C', 0);
    $pdf->Cell(40, 10, utf8_decode($reserva->num_documento), 1, 0, 'C', 0);
    $pdf->Cell(30, 10, utf8_decode($reserva->total), 1, 1, 'C', 0);                      
 $cont++;

@@ -97,7 +97,7 @@
                     <td><?php echo $cont;?></td>
                     <td><?php echo $reserva->cliente;?></td>
                     <td><?php echo $reserva->paquete;?></td>
-                    <td><?php echo $reserva->fecha_evento;?></td>
+                    <td><?php echo date('d-m-Y H:i', strtotime($reserva->fecha_evento)); ?></td> 
                     <td><?php echo $reserva->num_documento;?></td>
                     <td><?php echo $reserva->total;?></td>                                
                     <td>

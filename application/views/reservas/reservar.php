@@ -101,9 +101,9 @@
                 </div>
               </div>
               <div class="form-group row mt-4">                                                   
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <label for="fecha">Fecha del Evento:</label>
-                    <input type="date" class="form-control" name="fecha" id="fecha" required>
+                    <input type="datetime-local" class="form-control" name="fecha" id="fecha" required>
                   </div> 
                   <div class="col-md-3">                   
                     <?php $dataComprobante = $comprobante->id_comprobante.'*'.$comprobante->cantidad.'*'.$comprobante->serie;?>   

@@ -33,7 +33,7 @@
                   <tr>
                     <th>#</th>
                     <th>Cliente</th>                  
-                    <th>Fecha Evento</th>
+                    <th>Fecha y hora del Evento</th>
                     <th>Direccion</th>
                     <th>Pago Realizado</th>
                     <th>Estado de Reserva</th></th>
@@ -49,7 +49,7 @@
                                       <tr>
                                         <td><?php echo $cont;?></td>
                                         <td><?php echo $reserva->cliente;?></td>  
-                                        <td><?php echo $reserva->fecha_evento;?></td> 
+                                        <td><?php echo date('d-m-Y H:i', strtotime($reserva->fecha_evento)); ?></td> 
                                         <td><?php echo $reserva->direccion_evento;?></td> 
                                         <td><?php echo $reserva->pagado ? "Si" : "NO"; ?></td>
                                        
