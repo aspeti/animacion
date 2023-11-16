@@ -8,11 +8,10 @@ class Reservar_model extends CI_Model {
     $this->db->select("r.*, u.nombre as cliente");
     $this->db->from("reserva r");
     $this->db->join("usuario u", "u.id_usuario = r.id_usuario");    
-    $this->db->where("r.eliminado","0");
-    $this->db->group_by("r.id_reserva");
-    
+    $this->db->where("r.eliminado","0");  
+    $this->db->order_by("r.id_reserva", "desc");  
 
-    $resultados = $this->db->get("reserva");
+    $resultados = $this->db->get();
     return $resultados->result();
   }
 

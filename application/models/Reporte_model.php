@@ -9,6 +9,7 @@ class Reporte_model extends CI_Model {
         $this->db->join("usuario u", "u.id_usuario = r.id_cliente");    
         $this->db->join("paquete p", "p.id_paquete = r.id_paquete");       
         $this->db->where("r.eliminado","0");
+        $this->db->order_by("r.id_reserva", "desc");  
         $resultados = $this->db->get();
         return $resultados->result(); 
     }
@@ -22,7 +23,7 @@ class Reporte_model extends CI_Model {
         $this->db->where("r.eliminado","0");
         $this->db->where('r.fecha_evento >=', $fecha_inicio);
         $this->db->where('r.fecha_evento <=', $fecha_fin); 
-        //$this->db->group_by("v.id_venta");      
+        $this->db->order_by("r.id_reserva", "desc");    
 
         $resultados = $this->db->get();
 
@@ -45,8 +46,7 @@ class Reporte_model extends CI_Model {
 
     public function getAllDetalleById($id){          
         $this->db->select("p.*");
-        $this->db->from("reserva r");
-     //   $this->db->join("personalizado p", "p.id_producto = r.id_reserva");   
+        $this->db->from("reserva r");  
         $this->db->join("producto p", "p.id_producto = r.id_producto"); 
         $this->db->where("r.id_reserva", $id);
         $resultados = $this->db->get();
@@ -60,6 +60,7 @@ class Reporte_model extends CI_Model {
         $this->db->join("paquete p", "p.id_paquete = r.id_paquete");
         $this->db->where("r.eliminado","0");
         $this->db->group_by("r.id_paquete");
+        $this->db->order_by("cantidad", "desc");   
         $resultados = $this->db->get();
         return $resultados->result();
     }
