@@ -74,7 +74,7 @@
                       <li class="nav-item">
                         <a href="<?php echo base_url();?>reportes/estadistica" class="nav-link">
                           <i class="fas fa-file-text nav-icon"></i>
-                          <p>Estadistica</p>
+                          <p>Mas solicitados</p>
                         </a>
                       </li>  
                     <!--</ul>-->
