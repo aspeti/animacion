@@ -46,7 +46,7 @@ class PDF extends FPDF
       $this->Cell(10, 10, utf8_decode('N°'), 1, 0, 'C', 1);
       $this->Cell(30, 10, utf8_decode('Paquete'), 1, 0, 'C', 1);
       $this->Cell(60, 10, utf8_decode('Direccion'), 1, 0, 'C', 1);
-      $this->Cell(50, 10, utf8_decode('Fecha Evento'), 1, 0, 'C', 1);
+      $this->Cell(50, 10, utf8_decode('Fecha y hora del evento'), 1, 0, 'C', 1);
       $this->Cell(25, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
       
    }
@@ -120,7 +120,7 @@ $pdf->SetY(20);
          $pdf->Cell(10, 10, utf8_decode($cont), 1, 0, 'C', 0);
          $pdf->Cell(30, 10, utf8_decode($reserva->paquete), 1, 0, 'C', 0);
          $pdf->Cell(60, 10, utf8_decode($reserva->direccion_evento), 1, 0, 'C', 0);
-         $pdf->Cell(50, 10, utf8_decode($reserva->fecha_evento), 1, 0, 'C', 0);
+         $pdf->Cell(50, 10, utf8_decode(date('d-m-Y H:m', strtotime($reserva->fecha_evento))), 1, 0, 'C', 0);
          $pdf->Cell(25, 10, utf8_decode($reserva->total), 1, 0, 'C', 0);
          
          
