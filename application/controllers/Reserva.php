@@ -87,9 +87,11 @@ class Reserva extends CI_Controller {
 		$id_cliente = $this->session->userdata("id_usuario");
 		$id_paquete = $this->input->post("id_paquete");
 		$confirmacion = '0';
+		$pagado = '0';
 
 		if($this->session->userdata("rol")==1){
 			$confirmacion = '1';
+			$pagado = '1';
 		}
 
 
@@ -109,7 +111,7 @@ class Reserva extends CI_Controller {
 			'direccion_evento'=> $direccion_evento,
 			'contacto'=> $contacto,
 			//'img_comprobante'=> $img,
-			'pagado'=> '0',			
+			'pagado'=> $pagado,			
 			'total'=> $total,	
 			'serie'=> $serie,
 			'confirmacion' => $confirmacion,	
